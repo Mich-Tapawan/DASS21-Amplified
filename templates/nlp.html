@@ -3,64 +3,153 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DASS21 - Amplified</title>
+    <title>DASS — Symptoms identifier</title>
     <link rel="stylesheet" href="/static/style/nlp.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <header>
-      <h4>DASS21 - Amplified</h4>
-      <div class="header-icons">
-        <a href="/">
-          <img src="/static/assets/home.png" alt="Home Icon" />
+    <header class="app-header">
+      <p class="app-header__title">DASS21 — Amplified</p>
+      <nav class="nav-actions" aria-label="Main navigation">
+        <!-- Icons: Heroicons v2.2.0 (MIT)—https://heroicons.com / https://cdn.jsdelivr.net/npm/heroicons@2.2.0/ -->
+        <a href="/" title="Home" aria-label="Home">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+            />
+          </svg>
         </a>
-        <a href="/detect">
-          <img src="/static/assets/list.png" alt="List Icon" />
+        <a
+          href="/detect"
+          title="Symptoms identifier"
+          aria-label="Symptoms identifier"
+          aria-current="page"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+            />
+          </svg>
         </a>
-      </div>
+               <a
+          href="https://www2.psy.unsw.edu.au/dass/"
+          title="About DASS-21 (UNSW)"
+          aria-label="About DASS-21"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+            />
+          </svg>
+        </a>
+      </nav>
     </header>
 
-    <main>
-      <div class="symptoms-identifier">
-        <h2>Symptoms Identifier</h2>
-        <textarea
-          placeholder="What are you feeling?"
-          rows="6"
-          id="user-input"
-        ></textarea>
-        <button id="analyze-btn">Analyze</button>
+    <main class="page-wrap nlp-page">
+      <div class="page-hero">
+        <h1 class="page-hero__title">Symptoms identifier</h1>
+        <p class="page-hero__lede">
+          Describe how you have been feeling in your own words. We will match
+          phrases to DASS-21 symptom categories.
+        </p>
       </div>
-      <div class="results">
-        <div class="symptoms-found">
-          <div class="title-box">
-            <h3>DASS 21 - Symptoms Found</h3>
-          </div>
-          <div class="content-box">
-            <p id="symptoms-list"></p>
-          </div>
-        </div>
 
-        <div class="findings-box">
-          <h4>Findings</h4>
-          <div class="findings-content">
-            <div class="findings-item">
-              <p>Depression</p>
-              <p id="depression-count">0</p>
-            </div>
-            <div class="findings-item">
-              <p>Anxiety</p>
-              <p id="anxiety-count">0</p>
-            </div>
-            <div class="findings-item">
-              <p>Stress</p>
-              <p id="stress-count">0</p>
+      <div class="nlp-grid">
+        <section class="card nlp-input-panel" aria-labelledby="input-heading">
+          <div class="card__header">
+            <h2 id="input-heading">Your text</h2>
+          </div>
+          <div class="card__body">
+            <label class="field-label" for="user-input"
+              >What are you feeling?</label
+            >
+            <textarea
+              id="user-input"
+              class="nlp-textarea"
+              placeholder="e.g. I have felt on edge and struggled to relax…"
+              rows="8"
+            ></textarea>
+            <div class="nlp-actions">
+              <button type="button" id="reset" class="btn btn--secondary">
+                Reset
+              </button>
+              <button type="button" id="analyze-btn" class="btn btn--primary">
+                Analyze
+              </button>
             </div>
           </div>
+        </section>
+
+        <div class="nlp-results">
+          <section class="card" aria-labelledby="symptoms-heading">
+            <div class="card__header">
+              <h2 id="symptoms-heading">Symptoms found</h2>
+            </div>
+            <div class="card__body">
+              <div
+                id="symptoms-list"
+                class="symptoms-list"
+                role="status"
+                aria-live="polite"
+              ></div>
+            </div>
+          </section>
+
+          <section class="card findings-card" aria-labelledby="findings-title">
+            <div class="card__header">
+              <h2 id="findings-title">Findings</h2>
+            </div>
+            <div class="card__body">
+              <div class="findings-grid">
+                <div class="findings-stat">
+                  <span class="findings-stat__label">Depression</span>
+                  <span class="findings-stat__value" id="depression-count">0</span>
+                </div>
+                <div class="findings-stat">
+                  <span class="findings-stat__label">Anxiety</span>
+                  <span class="findings-stat__value" id="anxiety-count">0</span>
+                </div>
+                <div class="findings-stat">
+                  <span class="findings-stat__label">Stress</span>
+                  <span class="findings-stat__value" id="stress-count">0</span>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </main>

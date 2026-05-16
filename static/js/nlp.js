@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const textArea = document.getElementById("user-input");
   const analyzeBtn = document.getElementById("analyze-btn");
+  const resetBtn = document.getElementById("reset");
   const symptomsList = document.getElementById("symptoms-list");
   const depressionCount = document.getElementById("depression-count");
   const anxietyCount = document.getElementById("anxiety-count");
@@ -13,6 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     processText(userText);
+  });
+
+  resetBtn.addEventListener("click", () => {
+    depressionCount.innerHTML = "0";
+    anxietyCount.innerHTML = "0";
+    stressCount.innerHTML = "0";
+    symptomsList.innerHTML = "";
+    textArea.value = "";
   });
 
   async function processText(text) {

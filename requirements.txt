@@ -1,3 +1,8 @@
+flask
+flask-cors
 pandas
-sklearn
+numpy
 scipy
+scikit-learn
+joblib
+spacy

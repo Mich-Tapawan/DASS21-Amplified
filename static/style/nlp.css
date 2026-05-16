@@ -1,158 +1,149 @@
-body {
-  font-family: Arial, sans-serif;
+@import url("./common.css");
+
+.nlp-page .page-hero {
+  margin-bottom: 1.75rem;
+}
+
+.nlp-page .page-hero__title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.nlp-page .page-hero__lede {
   margin: 0;
-  padding: 0;
-  background-color: #f8f8f8;
-  color: #333;
+  max-width: 36rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
-header {
+.nlp-grid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 960px) {
+  .nlp-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 400px);
+  }
+}
+
+.nlp-input-panel .card__body {
   display: flex;
-  background-color: #f34646;
-  color: white;
-  padding: 10px 150px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  font-family: Poppins, serif;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-h4 {
-  font-size: 20px;
-  font-family: Poppins, serif;
+.field-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
 }
 
-.header-icons {
-  display: flex;
-  gap: 50px; /* Space between icons */
-}
-
-.header-icons img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%; /* Optional for circular icons */
-  padding: 5px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.header-icons img:hover {
-  background-color: #e57373;
-  transform: scale(1.1); /* Slight zoom effect on hover */
-}
-
-main {
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Space between left and right sections */
-  gap: 20px; /* Space between the two sections */
-  padding: 10px 150px;
-}
-
-.symptoms-identifier {
-  width: 300px; /* Adjust width as needed */
-  text-align: left;
-}
-
-.symptoms-identifier h2 {
-  color: #f34646;
-  font-size: 2rem;
-  white-space: nowrap; /* Prevents wrapping */
-}
-
-.symptoms-identifier textarea {
-  width: 600px;
-  height: 450px; /* Adjust height if necessary */
-  padding: 15px;
-  border: 1px solid #e57373;
-  border-radius: 8px;
-  outline: none; /* Removes default outline */
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.symptoms-identifier button {
-  background-color: #e57373;
-  color: white;
-  border: none;
-  width: 500px; /* Matches the textarea width */
-  height: 50px;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.symptoms-identifier button:hover {
-  background-color: #f34646; /* Slightly darker shade on hover */
-}
-
-.results {
-  margin-top: 5.5rem;
-}
-
-.title-box {
-  background-color: #f34646;
-  color: white;
-  padding: 10px;
-  width: 500px;
-  border-radius: 8px 8px 0 0; /* Rounded top corners */
-  text-align: center;
-  font-weight: bold;
-  font-family: Poppins;
-}
-
-.content-box {
-  background-color: white;
-  border: 2px solid #e57373;
-  width: 486px;
-  border-radius: 0 0 8px 8px; /* Rounded bottom corners */
-  padding: 15px;
-  min-height: 150px; /* Adjust as needed */
-  font-size: 14px;
-  color: #333;
-}
-
-.findings-box {
-  margin-top: 4rem;
-  background-color: #f0c7c7; /* Red color for the box */
-  padding: 15px;
-  border-radius: 8px; /* Rounded corners */ /* Same width as the content box */
-  height: 150px;
-}
-
-.findings-box h4 {
-  color: black;
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-  font-family: "Poppins";
-  margin-bottom: 20px; /* Space between title and items */
-  margin-top: 0px; /* Move the title slightly higher */
-}
-
-.findings-content {
-  display: flex;
-  justify-content: space-between; /* Space the items evenly */
-  text-align: center;
+.nlp-textarea {
   width: 100%;
+  min-height: 200px;
+  max-height: min(50vh, 420px);
+  padding: 1rem 1.125rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  resize: vertical;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.findings-item {
-  flex: 1; /* Each item takes equal space */
+.nlp-textarea::placeholder {
+  color: var(--color-accent-muted);
 }
 
-.findings-item p {
-  font-size: 16px;
-  color: black;
-  margin-bottom: 5px;
-  font-family: Poppins;
+.nlp-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--focus-ring);
 }
 
-/* Style for the number (0) */
-.findings-item p:last-child {
-  color: #f34646; /* Color the number 0 */
-  font-size: 20px; /* Make the number slightly bigger */
-  font-weight: bold; /* Make the number bold */
-  font-family: Poppins;
+.nlp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.nlp-actions .btn {
+  flex: 1 1 120px;
+  min-width: min(100%, 140px);
+}
+
+.nlp-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.symptoms-list {
+  margin: 0;
+  min-height: 4rem;
+  padding: 1rem 1.125rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.symptoms-list:empty::before {
+  content: "Matched symptoms will appear here after you analyze your text.";
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.findings-card .card__body {
+  padding-top: 1rem;
+}
+
+.findings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+@media (max-width: 400px) {
+  .findings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.findings-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0.75rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  gap: 0.35rem;
+}
+
+.findings-stat__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.findings-stat__value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
 }

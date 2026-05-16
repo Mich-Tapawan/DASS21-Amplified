@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const likelihood = document.getElementById("likelihood");
   const magnitude = document.getElementById("magnitude");
   const future = document.getElementById("future");
+  const futureSeverity = document.getElementById("future-severity");
 
   const questions = [
     "I felt that I had nothing to look forward to",
@@ -73,6 +74,26 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".S-question"),
   ];
   let currentGroupIndex = 0;
+  const stepEls = document.querySelectorAll(".stepper__step");
+
+  function updateStepper(index) {
+    stepEls.forEach((el) => {
+      const step = Number(el.getAttribute("data-step"));
+      el.classList.toggle("is-active", step === index);
+    });
+  }
+
+  function updateNavButtons() {
+    if (currentGroupIndex === 0) {
+      returnBtn.classList.add("btn--back-muted");
+      returnBtn.classList.remove("btn--back-active");
+    } else {
+      returnBtn.classList.remove("btn--back-muted");
+      returnBtn.classList.add("btn--back-active");
+    }
+    nextBtn.textContent =
+      currentGroupIndex === groups.length - 1 ? "Submit" : "Next";
+  }
 
   function showGroup(index) {
     groups.forEach((group, i) => {
@@ -80,6 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
         element.parentElement.style.display = i === index ? "block" : "none";
       });
     });
+    updateStepper(index);
+    updateNavButtons();
   }
 
   showGroup(currentGroupIndex);
@@ -93,10 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
       showGroup(currentGroupIndex);
       computeDASS();
     }
-
-    returnBtn.style.background = currentGroupIndex == 0 ? "#e57373" : "#f34646";
-    nextBtn.innerHTML =
-      currentGroupIndex === groups.length - 1 ? "SUBMIT" : "NEXT";
   });
 
   returnBtn.addEventListener("click", () => {
@@ -104,10 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
       currentGroupIndex--;
       showGroup(currentGroupIndex);
     }
-
-    returnBtn.style.background = currentGroupIndex == 0 ? "#e57373" : "#f34646";
-    nextBtn.innerHTML =
-      currentGroupIndex === groups.length - 1 ? "SUBMIT" : "NEXT";
   });
 
   function gatherAnswers(categoryClass) {
@@ -154,6 +169,18 @@ document.addEventListener("DOMContentLoaded", () => {
       future.innerHTML = Number(
         data.depression_increase_magnitude + 13
       ).toFixed(2);
+
+      if (Number(future.innerHTML) <= 9) {
+        futureSeverity.innerHTML = "Normal";
+      } else if (Number(future.innerHTML) <= 13) {
+        futureSeverity.innerHTML = "Mild";
+      } else if (Number(future.innerHTML) <= 20) {
+        futureSeverity.innerHTML = "Moderate";
+      } else if (Number(future.innerHTML) <= 27) {
+        futureSeverity.innerHTML = "Severe";
+      } else {
+        futureSeverity.innerHTML = "Extremely Severe";
+      }
     } catch (error) {
       console.error("Error computing DASS: ", error);
     }
