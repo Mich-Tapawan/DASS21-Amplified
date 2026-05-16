@@ -1,3 +1,102 @@
-.venv/
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-log.txt
+pip-delete-this-directory.txt
 
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.env/
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Flask
+instance/
+.webassets-cache
+flask_session/
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Type checkers & linters
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs & editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Logs & local databases
+*.log
+logs/
+*.sqlite
+*.sqlite3
+*.db
+
+# Project-specific (generated / local data)
+dataset.xlsx
+scripts/*.pkl
+dass_logistic_model.pkl
+dass_linear_model.pkl
+
+# spaCy model cache (if downloaded outside venv)
+models/

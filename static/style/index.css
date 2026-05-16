@@ -31,6 +31,52 @@
   }
 }
 
+.index-questionnaire {
+  overflow: hidden;
+}
+
+.index-questionnaire__inner {
+  position: relative;
+  min-height: min(70vh, 640px);
+}
+
+.assessment-complete {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border-radius: inherit;
+}
+
+.assessment-complete.is-visible {
+  display: flex;
+}
+
+.assessment-complete__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 20rem;
+  text-align: center;
+}
+
+.assessment-complete__text {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.assessment-complete .btn {
+  min-width: 10rem;
+}
+
 .index-questionnaire__header {
   display: flex;
   flex-direction: column;

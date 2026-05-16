@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const questionList = document.getElementById("question-list");
   const returnBtn = document.getElementById("return");
   const nextBtn = document.getElementById("next");
+  const completeOverlay = document.getElementById("assessment-complete");
+  const restartBtn = document.getElementById("restart-assessment");
 
   const DScore = document.getElementById("D-score");
   const DSeverity = document.getElementById("D-severity");
@@ -83,6 +85,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const nextLabelEl = nextBtn.querySelector(".btn__label");
+
+  function setNextButtonLabel(text) {
+    if (nextLabelEl) {
+      nextLabelEl.textContent = text;
+      nextBtn.dataset.label = text;
+    }
+  }
+
   function updateNavButtons() {
     if (currentGroupIndex === 0) {
       returnBtn.classList.add("btn--back-muted");
@@ -91,8 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
       returnBtn.classList.remove("btn--back-muted");
       returnBtn.classList.add("btn--back-active");
     }
-    nextBtn.textContent =
-      currentGroupIndex === groups.length - 1 ? "Submit" : "Next";
+    setNextButtonLabel(
+      currentGroupIndex === groups.length - 1 ? "Submit" : "Next"
+    );
   }
 
   function showGroup(index) {
@@ -107,13 +119,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showGroup(currentGroupIndex);
 
+  function showCompletionOverlay() {
+    completeOverlay.removeAttribute("hidden");
+    completeOverlay.classList.add("is-visible");
+    restartBtn.focus();
+  }
+
+  function hideCompletionOverlay() {
+    completeOverlay.classList.remove("is-visible");
+    completeOverlay.setAttribute("hidden", "");
+  }
+
+  function resetAssessment() {
+    document.querySelectorAll(".question-list select").forEach((select) => {
+      select.selectedIndex = 0;
+    });
+    currentGroupIndex = 0;
+    showGroup(currentGroupIndex);
+  }
+
+  restartBtn.addEventListener("click", () => {
+    hideCompletionOverlay();
+    resetAssessment();
+  });
+
   nextBtn.addEventListener("click", () => {
     if (currentGroupIndex < groups.length - 1) {
       currentGroupIndex++;
       showGroup(currentGroupIndex);
     } else {
-      currentGroupIndex = 0;
-      showGroup(currentGroupIndex);
       computeDASS();
     }
   });
@@ -138,12 +172,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const aAnswers = gatherAnswers("A-question");
     const sAnswers = gatherAnswers("S-question");
 
-    console.log("Depression Answers: ", dAnswers);
-    console.log("Anxiety Answers: ", aAnswers);
-    console.log("Stress Answers: ", sAnswers);
+    setButtonLoading(nextBtn, true, { loadingLabel: "Submitting…" });
 
     try {
-      const res = await fetch("http://localhost:5000/computeDASS", {
+      const res = await fetch("/computeDASS", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -152,8 +184,12 @@ document.addEventListener("DOMContentLoaded", () => {
           sAnswers: sAnswers,
         }),
       });
+
+      if (!res.ok) {
+        throw new Error(`Request failed (${res.status})`);
+      }
+
       const data = await res.json();
-      console.log(data);
       DScore.innerHTML = data.depression_score;
       DSeverity.innerHTML = data.depression_severity;
       AScore.innerHTML = data.anxiety_score;
@@ -181,8 +217,12 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         futureSeverity.innerHTML = "Extremely Severe";
       }
+
+      showCompletionOverlay();
     } catch (error) {
       console.error("Error computing DASS: ", error);
+    } finally {
+      await clearButtonLoading(nextBtn, { minDuration: 1000 });
     }
   }
 });

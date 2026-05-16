@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const stressCount = document.getElementById("stress-count");
 
   analyzeBtn.addEventListener("click", () => {
-    const userText = textArea.value;
+    const userText = textArea.value.trim();
     if (userText === "") {
       alert("Please enter text before submitting");
       return;
@@ -25,27 +25,49 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   async function processText(text) {
-    console.log(text);
-    const response = await fetch("http://localhost:5000/processText", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ text }),
-    });
-    const data = await response.json();
-    console.log(data);
+    setButtonLoading(analyzeBtn, true, { loadingLabel: "Analyzing…" });
 
-    const formattedSymptoms = [];
-    for (const [category, symptoms] of Object.entries(data.matched_symptoms)) {
-      symptoms.forEach((symptom) => {
-        formattedSymptoms.push(`${symptom} (${category})`);
+    try {
+      const response = await fetch("/processText", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text }),
       });
-    }
-    symptomsList.innerHTML = formattedSymptoms.join(", ");
 
-    depressionCount.innerHTML = data.symptom_counts.Depression;
-    anxietyCount.innerHTML = data.symptom_counts.Anxiety;
-    stressCount.innerHTML = data.symptom_counts.Stress;
+      if (!response.ok) {
+        throw new Error(`Request failed (${response.status})`);
+      }
+
+      const data = await response.json();
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      const formattedSymptoms = [];
+      for (const [category, symptoms] of Object.entries(
+        data.matched_symptoms || {}
+      )) {
+        symptoms.forEach((symptom) => {
+          formattedSymptoms.push(`${symptom} (${category})`);
+        });
+      }
+      symptomsList.innerHTML =
+        formattedSymptoms.length > 0
+          ? formattedSymptoms.join(", ")
+          : "No DASS-21 symptoms were matched in your text.";
+
+      depressionCount.innerHTML = data.symptom_counts?.Depression ?? 0;
+      anxietyCount.innerHTML = data.symptom_counts?.Anxiety ?? 0;
+      stressCount.innerHTML = data.symptom_counts?.Stress ?? 0;
+    } catch (error) {
+      console.error("Error processing text: ", error);
+      symptomsList.innerHTML =
+        "Something went wrong while analyzing your text. Please try again.";
+    } finally {
+      setButtonLoading(analyzeBtn, false);
+    }
   }
 });

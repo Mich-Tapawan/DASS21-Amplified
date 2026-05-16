@@ -49,13 +49,7 @@
             />
           </svg>
         </a>
-               <a
-          href="https://www2.psy.unsw.edu.au/dass/"
-          title="About DASS-21 (UNSW)"
-          aria-label="About DASS-21"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="/info" title="Information and resources" aria-label="Information">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -88,14 +82,15 @@
           class="card index-questionnaire"
           aria-labelledby="q-heading"
         >
-          <div class="card__header index-questionnaire__header">
-            <h2 id="q-heading" class="card-heading-noborder">Questionnaire</h2>
-            <div class="stepper" aria-label="Assessment sections">
-              <span class="stepper__step" data-step="0">Depression</span>
-              <span class="stepper__step" data-step="1">Anxiety</span>
-              <span class="stepper__step" data-step="2">Stress</span>
+          <div class="index-questionnaire__inner">
+            <div class="card__header index-questionnaire__header">
+              <h2 id="q-heading" class="card-heading-noborder">Questionnaire</h2>
+              <div class="stepper" aria-label="Assessment sections">
+                <span class="stepper__step" data-step="0">Depression</span>
+                <span class="stepper__step" data-step="1">Anxiety</span>
+                <span class="stepper__step" data-step="2">Stress</span>
+              </div>
             </div>
-          </div>
           <div class="card__body">
             <div class="form-container">
               <ul id="question-list" class="question-list"></ul>
@@ -105,8 +100,30 @@
                 Return
               </button>
               <button type="button" id="next" class="btn btn--primary">
-                Next
+                <span class="btn__label">Next</span>
               </button>
+            </div>
+          </div>
+            <div
+              id="assessment-complete"
+              class="assessment-complete"
+              role="dialog"
+              aria-labelledby="assessment-complete-title"
+              aria-modal="true"
+              hidden
+            >
+              <div class="assessment-complete__panel">
+                <p id="assessment-complete-title" class="assessment-complete__text">
+                  Take assessment again?
+                </p>
+                <button
+                  type="button"
+                  id="restart-assessment"
+                  class="btn btn--primary"
+                >
+                  Start
+                </button>
+              </div>
             </div>
           </div>
         </section>
@@ -165,6 +182,7 @@
       </div>
     </main>
 
+    <script src="/static/js/loading.js"></script>
     <script src="/static/js/index.js"></script>
   </body>
 </html>

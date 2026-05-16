@@ -1,0 +1,144 @@
+@import url("./common.css");
+
+.info-page .page-hero {
+  margin-bottom: 1.75rem;
+}
+
+.info-page .page-hero__title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.info-page .page-hero__lede {
+  margin: 0;
+  max-width: 42rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.info-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.info-section__body p,
+.info-section__body li {
+  margin: 0 0 0.75rem;
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.info-section__body p:last-child,
+.info-section__body ul:last-child {
+  margin-bottom: 0;
+}
+
+.info-section__body ul {
+  margin: 0 0 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.info-section__body h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.info-section__body h3:first-child {
+  margin-top: 0;
+}
+
+.info-disclaimer {
+  background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+}
+
+.info-disclaimer .card__body p {
+  color: var(--color-text);
+}
+
+.info-table-wrap {
+  overflow-x: auto;
+  margin: 0.75rem 0;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.info-table th,
+.info-table td {
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border: 1px solid var(--color-border);
+}
+
+.info-table th {
+  background: var(--color-bg);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.info-table td {
+  color: var(--color-text);
+}
+
+.info-crisis {
+  border-color: var(--color-primary);
+  background: var(--color-bg);
+}
+
+.info-crisis .card__header h2 {
+  color: var(--color-primary-hover);
+}
+
+.info-hotline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-hotline-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.info-hotline-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.info-hotline-list strong {
+  display: block;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  margin-bottom: 0.2rem;
+}
+
+.info-hotline-list a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.info-hotline-list a:hover {
+  text-decoration: underline;
+}
+
+.info-ref-link {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.info-ref-link:hover {
+  color: var(--color-primary-hover);
+}

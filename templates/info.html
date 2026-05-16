@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DASS — Information &amp; resources</title>
+    <link rel="stylesheet" href="/static/style/info.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="app-header">
+      <p class="app-header__title">DASS21 — Amplified</p>
+      <nav class="nav-actions" aria-label="Main navigation">
+        <a href="/" title="Home" aria-label="Home">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+            />
+          </svg>
+        </a>
+        <a href="/detect" title="Symptoms identifier" aria-label="Symptoms identifier">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+            />
+          </svg>
+        </a>
+        <a
+          href="/info"
+          title="Information and resources"
+          aria-label="Information"
+          aria-current="page"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+            />
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="page-wrap info-page">
+      <div class="page-hero">
+        <h1 class="page-hero__title">Information &amp; resources</h1>
+        <p class="page-hero__lede">
+          How to read your results, what the scores mean, and where to find
+          support if you need help.
+        </p>
+      </div>
+
+      <div class="info-sections">
+        <section class="card info-disclaimer">
+          <div class="card__header">
+            <h2>Important disclaimer</h2>
+          </div>
+          <div class="card__body info-section__body">
+            <p>
+              This application is for <strong>educational and research purposes
+              only</strong>. It is not a substitute for professional
+              psychological diagnosis, treatment, or clinical assessment. Results
+              reflect a screening tool and statistical models—not a medical
+              opinion. Always consult a qualified mental health professional for
+              personal advice.
+            </p>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card__header">
+            <h2>Understanding your DASS-21 scores</h2>
+          </div>
+          <div class="card__body info-section__body">
+            <p>
+              The Depression, Anxiety and Stress Scale (DASS-21) uses 21
+              questions grouped into three subscales. Each item is scored 0–3
+              (Never to Very Often), then subscale totals are <strong>multiplied
+              by 2</strong> to align with the full DASS-42 scale. Your severity
+              band is determined by comparing your score to established
+              cut-offs below.
+            </p>
+            <p>
+              Official reference:
+              <a
+                class="info-ref-link"
+                href="https://www2.psy.unsw.edu.au/dass/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >UNSW DASS-21</a
+              >
+            </p>
+
+            <h3>Depression</h3>
+            <div class="info-table-wrap">
+              <table class="info-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Score</th>
+                    <th scope="col">Severity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>0–9</td><td>Normal</td></tr>
+                  <tr><td>10–13</td><td>Mild</td></tr>
+                  <tr><td>14–20</td><td>Moderate</td></tr>
+                  <tr><td>21–27</td><td>Severe</td></tr>
+                  <tr><td>28+</td><td>Extremely Severe</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Anxiety</h3>
+            <div class="info-table-wrap">
+              <table class="info-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Score</th>
+                    <th scope="col">Severity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>0–7</td><td>Normal</td></tr>
+                  <tr><td>8–9</td><td>Mild</td></tr>
+                  <tr><td>10–14</td><td>Moderate</td></tr>
+                  <tr><td>15–19</td><td>Severe</td></tr>
+                  <tr><td>20+</td><td>Extremely Severe</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Stress</h3>
+            <div class="info-table-wrap">
+              <table class="info-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Score</th>
+                    <th scope="col">Severity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>0–14</td><td>Normal</td></tr>
+                  <tr><td>15–18</td><td>Mild</td></tr>
+                  <tr><td>19–25</td><td>Moderate</td></tr>
+                  <tr><td>26–33</td><td>Severe</td></tr>
+                  <tr><td>34+</td><td>Extremely Severe</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card__header">
+            <h2>What severity levels may mean</h2>
+          </div>
+          <div class="card__body info-section__body">
+            <p>
+              These descriptions are general guidance for each band. Individual
+              experiences vary; a professional can help interpret results in
+              context.
+            </p>
+            <ul>
+              <li>
+                <strong>Normal:</strong> Scores are within a typical range for
+                the general population on that subscale.
+              </li>
+              <li>
+                <strong>Mild:</strong> Some symptoms may be present but are
+                often manageable with self-care and lifestyle support.
+              </li>
+              <li>
+                <strong>Moderate:</strong> Symptoms are more noticeable and may
+                affect daily life; consider speaking with a counselor or GP.
+              </li>
+              <li>
+                <strong>Severe:</strong> Symptoms are likely interfering with
+                functioning; professional support is recommended.
+              </li>
+              <li>
+                <strong>Extremely severe:</strong> Symptoms are intense and
+                persistent; seek prompt help from a mental health professional.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card__header">
+            <h2>Predictive findings (assessment page)</h2>
+          </div>
+          <div class="card__body info-section__body">
+            <p>
+              After you submit the questionnaire, additional metrics estimate
+              patterns based on machine learning models trained on survey data:
+            </p>
+            <ul>
+              <li>
+                <strong>Likelihood of surpassing mild depression:</strong> A
+                percentage estimate of whether your depression score may move
+                above the mild threshold, given your current anxiety and stress
+                scores.
+              </li>
+              <li>
+                <strong>Magnitude of deviation from mild depression:</strong>
+                How far your depression score may sit above or below the mild
+                cut-off (score of 13), in model units.
+              </li>
+              <li>
+                <strong>Predicted future depression score &amp; severity:</strong>
+                A projected depression score and corresponding severity band.
+                These are statistical projections, not forecasts of your
+                personal future.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card__header">
+            <h2>Symptoms identifier results</h2>
+          </div>
+          <div class="card__body info-section__body">
+            <p>
+              On the <a class="info-ref-link" href="/detect">Symptoms identifier</a>
+              page, free text is analyzed with natural language processing to
+              match phrases related to DASS-21 items.
+            </p>
+            <ul>
+              <li>
+                <strong>Symptoms found:</strong> Matched symptom phrases grouped
+                by Depression, Anxiety, or Stress. Absence of matches does not
+                mean you are unaffected—only that the text did not match known
+                patterns.
+              </li>
+              <li>
+                <strong>Findings counts:</strong> The number of distinct symptom
+                phrases detected in each category. Higher counts suggest more
+                symptom language in your description, not a clinical diagnosis.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card__header">
+            <h2>Self-care and next steps</h2>
+          </div>
+          <div class="card__body info-section__body">
+            <ul>
+              <li>
+                Maintain regular sleep, meals, and gentle physical activity when
+                possible.
+              </li>
+              <li>
+                Stay connected with people you trust; isolation can worsen low
+                mood and anxiety.
+              </li>
+              <li>
+                Limit alcohol and stimulants if they worsen how you feel.
+              </li>
+              <li>
+                Use brief grounding or breathing exercises when anxiety spikes.
+              </li>
+              <li>
+                If scores are mild or above, or symptoms persist for two weeks or
+                more, consider a school counselor, GP, or licensed mental health
+                professional.
+              </li>
+              <li>
+                Keep a simple log of mood and triggers to discuss with a
+                clinician if you seek help.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card info-crisis">
+          <div class="card__header">
+            <h2>Crisis and mental health resources</h2>
+          </div>
+          <div class="card__body info-section__body">
+            <p>
+              <strong>If you or someone else is in immediate danger,</strong>
+              call your local emergency number right away (e.g. 911 in the US,
+              999 in the UK, 117 in the Philippines).
+            </p>
+
+            <h3>Philippines</h3>
+            <ul class="info-hotline-list">
+              <li>
+                <strong>NCMH Crisis Hotline</strong>
+                1553 (landline) · 0917-899-8727 (Globe/TM) · 0966-351-4518
+                (Smart)
+              </li>
+              <li>
+                <strong>Hopeline Philippines</strong>
+                2919 (toll-free for Globe/TM) · 0917-558-4673 · 0918-873-4673
+              </li>
+              <li>
+                <strong>In Touch Crisis Lines</strong>
+                (02) 8893-7603 · 0917-800-1123 · 0922-893-8944
+              </li>
+            </ul>
+
+            <h3>United States &amp; international</h3>
+            <ul class="info-hotline-list">
+              <li>
+                <strong>988 Suicide &amp; Crisis Lifeline (US)</strong>
+                Call or text <a href="tel:988">988</a> ·
+                <a href="https://988lifeline.org" target="_blank" rel="noopener noreferrer">988lifeline.org</a>
+              </li>
+              <li>
+                <strong>Crisis Text Line (US &amp; others)</strong>
+                Text <strong>HOME</strong> to 741741
+              </li>
+              <li>
+                <strong>Find a helpline worldwide</strong>
+                <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">findahelpline.com</a>
+              </li>
+            </ul>
+            <p>
+              Hotline availability and numbers may change. Verify current
+              details with the service provider before relying on them in an
+              emergency.
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
