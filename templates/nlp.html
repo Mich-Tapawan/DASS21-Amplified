@@ -16,7 +16,6 @@
     <header class="app-header">
       <p class="app-header__title">DASS21 — Amplified</p>
       <nav class="nav-actions" aria-label="Main navigation">
-        <!-- Icons: Heroicons v2.2.0 (MIT)—https://heroicons.com / https://cdn.jsdelivr.net/npm/heroicons@2.2.0/ -->
         <a href="/" title="Home" aria-label="Home">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,70 +81,63 @@
         </p>
       </div>
 
-      <div class="nlp-grid">
-        <section class="card nlp-input-panel" aria-labelledby="input-heading">
-          <div class="card__header">
-            <h2 id="input-heading">Your text</h2>
+      <section class="card nlp-workspace" aria-label="Symptoms identifier">
+        <div id="nlp-input-view" class="nlp-view card__body">
+          <label class="field-label" for="user-input">What are you feeling?</label>
+          <textarea
+            id="user-input"
+            class="nlp-textarea"
+            placeholder="e.g. I have felt on edge and struggled to relax…"
+            rows="10"
+          ></textarea>
+          <div class="nlp-actions">
+            <button type="button" id="reset" class="btn btn--secondary">
+              Reset
+            </button>
+            <button type="button" id="analyze-btn" class="btn btn--primary">
+              <span class="btn__label">Analyze</span>
+            </button>
           </div>
-          <div class="card__body">
-            <label class="field-label" for="user-input"
-              >What are you feeling?</label
-            >
-            <textarea
-              id="user-input"
-              class="nlp-textarea"
-              placeholder="e.g. I have felt on edge and struggled to relax…"
-              rows="8"
-            ></textarea>
-            <div class="nlp-actions">
-              <button type="button" id="reset" class="btn btn--secondary">
-                Reset
-              </button>
-              <button type="button" id="analyze-btn" class="btn btn--primary">
-                <span class="btn__label">Analyze</span>
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <div class="nlp-results">
-          <section class="card" aria-labelledby="symptoms-heading">
-            <div class="card__header">
-              <h2 id="symptoms-heading">Symptoms found</h2>
-            </div>
-            <div class="card__body">
-              <div
-                id="symptoms-list"
-                class="symptoms-list"
-                role="status"
-                aria-live="polite"
-              ></div>
-            </div>
-          </section>
-
-          <section class="card findings-card" aria-labelledby="findings-title">
-            <div class="card__header">
-              <h2 id="findings-title">Findings</h2>
-            </div>
-            <div class="card__body">
-              <div class="findings-grid">
-                <div class="findings-stat">
-                  <span class="findings-stat__label">Depression</span>
-                  <span class="findings-stat__value" id="depression-count">0</span>
-                </div>
-                <div class="findings-stat">
-                  <span class="findings-stat__label">Anxiety</span>
-                  <span class="findings-stat__value" id="anxiety-count">0</span>
-                </div>
-                <div class="findings-stat">
-                  <span class="findings-stat__label">Stress</span>
-                  <span class="findings-stat__value" id="stress-count">0</span>
-                </div>
-              </div>
-            </div>
-          </section>
         </div>
-      </div>
+
+        <div id="nlp-results-view" class="nlp-view card__body" hidden>
+          <div class="nlp-results-header">
+            <h2 class="nlp-results-title">Results</h2>
+            <p class="findings-note">Themes matched (not a clinical score)</p>
+          </div>
+
+          <div class="findings-grid">
+            <div class="findings-stat">
+              <span class="findings-stat__label">Depression</span>
+              <span class="findings-stat__value" id="depression-count">0</span>
+            </div>
+            <div class="findings-stat">
+              <span class="findings-stat__label">Anxiety</span>
+              <span class="findings-stat__value" id="anxiety-count">0</span>
+            </div>
+            <div class="findings-stat">
+              <span class="findings-stat__label">Stress</span>
+              <span class="findings-stat__value" id="stress-count">0</span>
+            </div>
+          </div>
+
+          <div class="nlp-symptoms-section">
+            <h3 class="nlp-symptoms-heading">Symptoms found</h3>
+            <div
+              id="symptoms-list"
+              class="symptoms-list"
+              role="status"
+              aria-live="polite"
+            ></div>
+          </div>
+
+          <div class="nlp-results-actions">
+            <button type="button" id="nlp-back-btn" class="btn btn--primary">
+              Analyze again
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script src="/static/js/loading.js"></script>

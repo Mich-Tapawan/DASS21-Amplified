@@ -14,28 +14,18 @@
 
 .nlp-page .page-hero__lede {
   margin: 0;
-  max-width: 36rem;
+  max-width: 42rem;
   color: var(--color-text-muted);
   font-size: 1rem;
   line-height: 1.55;
 }
 
-.nlp-grid {
-  display: grid;
-  gap: 1.5rem;
-  align-items: start;
+.nlp-workspace .card__body {
+  padding: 1.5rem;
 }
 
-@media (min-width: 960px) {
-  .nlp-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 400px);
-  }
-}
-
-.nlp-input-panel .card__body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.nlp-view[hidden] {
+  display: none !important;
 }
 
 .field-label {
@@ -46,8 +36,9 @@
 
 .nlp-textarea {
   width: 100%;
-  min-height: 200px;
-  max-height: min(50vh, 420px);
+  min-height: min(40vh, 320px);
+  max-height: min(55vh, 480px);
+  margin-top: 0.5rem;
   padding: 1rem 1.125rem;
   font-family: var(--font-sans);
   font-size: 1rem;
@@ -70,53 +61,45 @@
   box-shadow: var(--focus-ring);
 }
 
-.nlp-actions {
+.nlp-actions,
+.nlp-results-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 0.25rem;
+  margin-top: 1.25rem;
 }
 
-.nlp-actions .btn {
-  flex: 1 1 120px;
-  min-width: min(100%, 140px);
+.nlp-actions .btn,
+.nlp-results-actions .btn {
+  flex: 1 1 140px;
+  min-width: min(100%, 160px);
 }
 
-.nlp-results {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.nlp-results-header {
+  margin-bottom: 1.25rem;
 }
 
-.symptoms-list {
-  margin: 0;
-  min-height: 4rem;
-  padding: 1rem 1.125rem;
-  font-size: 0.9375rem;
-  line-height: 1.55;
+.nlp-results-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.125rem;
+  font-weight: 600;
   color: var(--color-text);
-  background: var(--color-bg);
-  border: 1px dashed var(--color-border);
-  border-radius: var(--radius-sm);
 }
 
-.symptoms-list:empty::before {
-  content: "Matched symptoms will appear here after you analyze your text.";
+.findings-note {
+  margin: 0;
+  font-size: 0.8125rem;
   color: var(--color-text-muted);
-  font-style: italic;
-}
-
-.findings-card .card__body {
-  padding-top: 1rem;
 }
 
 .findings-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .findings-grid {
     grid-template-columns: 1fr;
   }
@@ -146,4 +129,87 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-primary);
+}
+
+.nlp-symptoms-section {
+  margin-bottom: 1.25rem;
+}
+
+.nlp-symptoms-heading {
+  margin: 0 0 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.symptoms-list {
+  margin: 0;
+}
+
+.symptoms-empty,
+.symptoms-error {
+  margin: 0;
+  padding: 1rem 1.125rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  background: var(--color-bg);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.symptoms-error {
+  color: #b45309;
+  border-color: #fcd34d;
+  background: #fffbeb;
+}
+
+.symptoms-group {
+  margin-bottom: 1.25rem;
+}
+
+.symptoms-group:last-child {
+  margin-bottom: 0;
+}
+
+.symptoms-group__title {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+.symptoms-group__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.symptoms-group__list li {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.symptoms-group__list li:last-child {
+  margin-bottom: 0;
+}
+
+.symptoms-item__label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.symptoms-item__evidence {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-style: italic;
 }

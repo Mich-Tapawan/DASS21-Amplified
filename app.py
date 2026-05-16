@@ -20,13 +20,27 @@ def detect():
 def info():
     return render_template('info.html')
 
+MAX_TEXT_LEN = 2000
+
 @app.route('/processText', methods=['POST'])
 def processText():
     try:
-        data = request.get_json()
+        data = request.get_json(silent=True) or {}
         text = data.get('text')
+
+        if text is None or not str(text).strip():
+            return jsonify({'error': 'Text is required.'}), 400
+
+        text = str(text).strip()
+        if len(text) > MAX_TEXT_LEN:
+            return jsonify({
+                'error': f'Text must be at most {MAX_TEXT_LEN} characters.'
+            }), 400
+
         response = analyze_dass21_symptoms(text)
         return jsonify(response)
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 400
     except Exception as e:
         return jsonify({'error': f'Internal server error: {str(e)}'}), 500
 

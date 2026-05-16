@@ -123,9 +123,21 @@ dass21-amplified/
     "Depression": 0,
     "Anxiety": 1,
     "Stress": 1
-  }
+  },
+  "matched_items": [
+    {
+      "id": 14,
+      "category": "Anxiety",
+      "label": "I felt scared without any good reason",
+      "evidence": "anxious"
+    }
+  ]
 }
 ```
+
+`symptom_counts` reflect the number of **unique DASS-21 items** matched per category, not raw phrase hits.
+
+**Validation errors** (`400`): missing/empty text, or text longer than 2000 characters.
 
 ### `POST /computeDASS`
 
@@ -184,6 +196,19 @@ dass21-amplified/
 | 34+ | Extremely Severe |
 
 > Scores are multiplied by 2 to align with the full DASS-42 scale.
+
+---
+
+## Running tests
+
+```bash
+pip install pytest   # optional; unittest also works
+python -m pytest tests/test_nlp.py -v
+# or
+python -m unittest tests.test_nlp
+```
+
+Requires `en_core_web_sm` (`python -m spacy download en_core_web_sm`).
 
 ---
 
