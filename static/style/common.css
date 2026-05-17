@@ -21,6 +21,11 @@
   --space-page: clamp(1rem, 4vw, 2.5rem);
   --max-width: 1200px;
   --focus-ring: 0 0 0 3px rgba(13, 148, 136, 0.35);
+  --sev-normal:          #22c55e;
+  --sev-mild:            #eab308;
+  --sev-moderate:        #f97316;
+  --sev-severe:          #ef4444;
+  --sev-extreme:         #7c3aed;
 }
 
 *,
@@ -146,6 +151,34 @@ body {
 .btn--secondary:hover {
   background: var(--color-bg);
   border-color: var(--color-accent-muted);
+}
+
+.btn:disabled,
+.btn[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.btn--primary:disabled,
+.btn--primary[disabled] {
+  background: #94a3b8;
+  color: #f8fafc;
+  opacity: 0.9;
+}
+
+.btn--secondary:disabled,
+.btn--secondary[disabled] {
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  border-color: #e2e8f0;
+  opacity: 0.72;
+}
+
+.btn--secondary:disabled:hover,
+.btn--secondary[disabled]:hover {
+  background: var(--color-bg);
+  border-color: #e2e8f0;
 }
 
 /* First-step “back” = visually muted (used by index #return) */

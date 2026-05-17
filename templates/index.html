@@ -133,8 +133,16 @@
           aria-labelledby="findings-heading"
         >
           <div class="card findings-panel">
-            <div class="card__header">
+            <div class="card__header findings-panel__header">
               <h2 id="findings-heading">Findings</h2>
+              <button
+                type="button"
+                id="interpret-findings-btn"
+                class="btn btn--primary btn--sm"
+                disabled
+              >
+                View interpretation
+              </button>
             </div>
             <div class="card__body findings-panel__body">
               <div class="dass-results">
@@ -181,6 +189,38 @@
         </aside>
       </div>
     </main>
+
+    <div
+      id="findings-interpretation-modal"
+      class="interpretation-modal"
+      role="dialog"
+      aria-labelledby="interpretation-title"
+      aria-modal="true"
+      hidden
+    >
+      <div class="interpretation-modal__backdrop" data-close-modal></div>
+      <div class="interpretation-modal__panel" role="document">
+        <div class="interpretation-modal__header">
+          <h2 id="interpretation-title" class="interpretation-modal__title">
+            What your results mean
+          </h2>
+          <button
+            type="button"
+            id="interpretation-close"
+            class="interpretation-modal__close"
+            aria-label="Close"
+          >
+            &times;
+          </button>
+        </div>
+        <div id="interpretation-body" class="interpretation-modal__body"></div>
+        <div class="interpretation-modal__footer">
+          <a class="interpretation-modal__link" href="/info"
+            >More information and resources</a
+          >
+        </div>
+      </div>
+    </div>
 
     <script src="/static/js/loading.js"></script>
     <script src="/static/js/index.js"></script>
