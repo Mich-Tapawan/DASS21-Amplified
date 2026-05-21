@@ -61,7 +61,7 @@ dass21-amplified/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/dass21-amplified.git
+   git clone https://github.com/Mich-Tapawan/dass21-amplified.git
    cd dass21-amplified
    ```
 
