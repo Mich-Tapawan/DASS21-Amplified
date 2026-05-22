@@ -67,42 +67,73 @@ function highestSeverity(data) {
   ];
   return severities.reduce(
     (max, s) => (severityRank(s) > severityRank(max) ? s : max),
-    "None"
+    "None",
   );
 }
 
 function buildInterpretationHTML(data) {
-  const likelihoodPct = (Number(data.depression_increase_likelihood) * 100).toFixed(2);
-  const magnitudeVal  = Number(data.depression_increase_magnitude).toFixed(2);
-  const futureScore   = Number(data.depression_increase_magnitude + 13).toFixed(2);
-  const futureSev     = data.futureSeverity;
-  const highest       = highestSeverity(data);
-  const highestRank   = severityRank(highest);
-  const depressionRank  = severityRank(data.depression_severity);
-  const likelihoodNum   = Number(data.depression_increase_likelihood);
-  const showPredictive  = likelihoodNum >= 0.5 || severityRank(futureSev) >= 2;
-  const showCrisis      = highestRank >= 3 || (depressionRank >= 2 && likelihoodNum >= 0.5);
- 
+  // 1. Data Parsing & Score Formatting
+  const likelihoodPct = (
+    Number(data.depression_increase_likelihood) * 100
+  ).toFixed(2);
+  const magnitudeVal = Number(data.depression_increase_magnitude).toFixed(2);
+
+  // Per your research methodology, the baseline escalation threshold score is exactly 13
+  const DEPRESSION_THRESHOLD = 13;
+  const futureScore = (
+    Number(data.depression_increase_magnitude) + DEPRESSION_THRESHOLD
+  ).toFixed(2);
+  const futureSev = data.futureSeverity;
+
+  const highest = highestSeverity(data);
+  const highestRank = severityRank(highest);
+  const depressionRank = severityRank(data.depression_severity);
+  const likelihoodNum = Number(data.depression_increase_likelihood);
+
+  // Logic triggers for predictive insights and critical interventions
+  const showPredictive = likelihoodNum >= 0.5 || severityRank(futureSev) >= 2;
+  const showCrisis =
+    highestRank >= 3 || (depressionRank >= 2 && likelihoodNum >= 0.5);
+
   const scales = [
-    { label: "Depression", score: data.depression_score, severity: data.depression_severity, key: "depression" },
-    { label: "Anxiety",    score: data.anxiety_score,    severity: data.anxiety_severity,    key: "anxiety"    },
-    { label: "Stress",     score: data.stress_score,     severity: data.stress_severity,     key: "stress"     },
+    {
+      label: "Depression",
+      score: data.depression_score,
+      severity: data.depression_severity,
+      key: "depression",
+    },
+    {
+      label: "Anxiety",
+      score: data.anxiety_score,
+      severity: data.anxiety_severity,
+      key: "anxiety",
+    },
+    {
+      label: "Stress",
+      score: data.stress_score,
+      severity: data.stress_severity,
+      key: "stress",
+    },
   ];
- 
-  // Results list — each <li> gets data-severity for color-coding
-  const resultsList = scales.map(({ label, score, severity }) =>
-    `<li data-severity="${escapeHtml(severity)}">
+
+  // Results List — Formatted dynamically with research data properties
+  const resultsList =
+    scales
+      .map(
+        ({ label, score, severity }) =>
+          `<li data-severity="${escapeHtml(severity)}">
       Your ${escapeHtml(label.toLowerCase())} score is <strong>${escapeHtml(score)}</strong>
       <span style="color:var(--modal-text-muted);font-weight:400"> · ${escapeHtml(severity)}</span>
-    </li>`
-  ).join("") +
-  `<li>Likelihood of surpassing mild depression: <strong>${escapeHtml(likelihoodPct)}%</strong></li>
-   <li>Magnitude of deviation: <strong>${escapeHtml(magnitudeVal)}</strong></li>
-   <li data-severity="${escapeHtml(futureSev)}">Predicted future depression score: <strong>${escapeHtml(futureScore)}</strong>
+    </li>`,
+      )
+      .join("") +
+    `<li>Likelihood of escalating past mild depression threshold (>13): <strong>${escapeHtml(likelihoodPct)}%</strong></li>
+   <li>Predicted magnitude of deviation from threshold: <strong>${escapeHtml(magnitudeVal)}</strong> points</li>
+   <li data-severity="${escapeHtml(futureSev)}">Projected progression score: <strong>${escapeHtml(futureScore)}</strong>
      <span style="color:var(--modal-text-muted);font-weight:400"> · ${escapeHtml(futureSev)}</span>
    </li>`;
- 
-  // What this means
+
+  // What this means section — Drawing from SCALE_BLURBS
   let meaningItems = "";
   scales.forEach(({ label, score, severity, key }) => {
     if (severityRank(severity) >= 1) {
@@ -112,110 +143,108 @@ function buildInterpretationHTML(data) {
       }
     }
   });
- 
-  const meaningSection = meaningItems.length > 0
-    ? `<section class="interpretation-section">
-        <h3>What this means</h3>
+
+  const meaningSection =
+    meaningItems.length > 0
+      ? `<section class="interpretation-section">
+        <h3>Symptom Categorization & Meaning</h3>
         <ul>${meaningItems}</ul>
       </section>`
-    : `<section class="interpretation-section">
-        <h3>What this means</h3>
-        <p>Your scores are in the normal or minimal range. Keep up the habits that support your wellbeing and check in with yourself if anything changes.</p>
+      : `<section class="interpretation-section">
+        <h3>Symptom Categorization & Meaning</h3>
+        <p>Your current screening indicates that scores map inside the normal, sub-clinical spectrum. Continue reinforcing adaptive coping strategies and monitor your state regularly.</p>
       </section>`;
- 
-  // Recommendations
+
+  // Recommendations matched to the screening thresholds
   let recommendations = "";
   if (highestRank <= 1) {
     recommendations = `
-      <p>Your scores are in a lower range right now. That does not mean you should ignore how you feel.</p>
+      <p>Your data matches low-risk baseline profiles. To maintain psychological wellbeing, prioritize primary preventative habits:</p>
       <ul>
-        <li>Keep a regular sleep schedule and move your body when you can.</li>
-        <li>Stay connected with people you trust, even briefly.</li>
-        <li>Notice what helps you unwind and make small room for it each day.</li>
-        <li>If symptoms persist or worsen, consider talking with a counselor or health professional.</li>
+        <li>Maintain consistent circadian rhythms and basic sleep hygiene.</li>
+        <li>Leverage local peer-support ecosystems or speak to your family/trusted circles.</li>
+        <li>Incorporate deliberate stress-unwinding patterns within your academic schedule.</li>
+        <li>If subtle psychological fluctuations persist, consider initiating a proactive consultation with a school guidance counselor.</li>
       </ul>`;
   } else if (highestRank === 2) {
     recommendations = `
-      <p>Your results suggest symptoms that may benefit from more than self-care alone.</p>
+      <p>Your responses display clinical indicators that point toward moderate distress. Early intervention can significantly mitigate progression risk:</p>
       <ul>
-        <li>Consider speaking with a school counselor, GP, or therapist — they can help you understand your options.</li>
-        <li>Share how you have been feeling with someone you trust.</li>
-        <li>Continue basics: sleep, meals, gentle activity, and limits on alcohol or other substances.</li>
-        <li>You do not need to wait until things feel unbearable to ask for support.</li>
+        <li>Schedule an appointment with your campus guidance unit or an accessible mental health general practitioner to explore clinical evaluation.</li>
+        <li>Discuss your current distress markers with a trusted advocate, teacher, or family member.</li>
+        <li>Establish baseline regulatory boundaries (e.g., balanced screen time, structured resting intervals, complete avoidance of unprescribed substances).</li>
+        <li>Remember that seeking screening support early prevents the compounding effect of concurrent stress and anxiety.</li>
       </ul>`;
   } else {
     recommendations = `
-      <p>Your results suggest significant distress. Reaching out for professional support soon is a wise and courageous step.</p>
+      <p>Your screening profile reveals highly elevated symptoms indicating profound clinical distress. Swift, professional care pathways are strongly advised:</p>
       <ul>
-        <li>Contact a mental health professional, campus counseling, or your doctor as soon as you can.</li>
-        <li>Tell someone you trust what you are going through today.</li>
-        <li>If you feel unsafe or unable to cope, use the crisis resources below or your local emergency number.</li>
+        <li>Coordinate immediately with a licensed therapist, clinical psychologist, psychiatrist, or emergency medical team.</li>
+        <li>Explicitly inform your closest family members or legal guardians regarding the intensity of what you are navigating today.</li>
+        <li>If you sense an immediate compromise in safety or are struggling to hold steady, please bypass self-care protocols and directly use the immediate response channels listed below.</li>
       </ul>`;
   }
- 
-  // Predictive section
+
+  // Predictive Analytical Context
   let predictive = "";
   if (showPredictive) {
     predictive = `
       <section class="interpretation-section">
-        <h3>About the prediction</h3>
+        <h3>Predictive Analytics Overview (ML Model Context)</h3>
         <p>
-          Based on patterns in similar responses, this tool estimates a
-          <strong>${escapeHtml(likelihoodPct)}%</strong> chance that depression scores could move beyond mild levels,
-          with a projected future depression score of <strong>${escapeHtml(futureScore)}</strong>
-          (${escapeHtml(futureSev)}).
+          By processing your concurrent anxiety and stress indicators against our study's historical patterns, the underlying predictive models identify a 
+          <strong>${escapeHtml(likelihoodPct)}%</strong> probability of your depressive symptoms escalating past the sub-clinical ceiling (Score > 13). 
+          The linear pipeline projects a corresponding future score plateau around <strong>${escapeHtml(futureScore)}</strong> (${escapeHtml(futureSev)}).
         </p>
         <p>
-          This is a statistical projection, not a forecast of what will happen to you.
-          Many people improve with support, rest, and treatment. Use it as one signal, not a verdict.
+          <em>Methodological Disclaimer:</em> This metric represents a mathematical probability curve derived from correlational analysis of adolescent cohorts; it serves as an early-warning signal rather than an immutable clinical diagnostic forecast. Targeted behavioral adjustments and professional support regularly disrupt these upward trends.
         </p>
       </section>`;
   }
- 
-  // Crisis section
+
+  // Localized Philippine Emergency / Crisis Unit Mapping
   let crisis = "";
   if (showCrisis) {
     crisis = `
       <div class="interpretation-highlight" role="region" aria-label="Crisis resources">
-        <h3>If you need help right now</h3>
+        <h3>Immediate Crisis & Support Action Channels</h3>
         <p>
-          <strong>If you or someone else is in immediate danger,</strong>
-          call your local emergency number (e.g. 911 in the US, 999 in the UK, <strong>117</strong> in the Philippines).
+          <strong>If you or anyone around you is in immediate physical risk:</strong> 
+          Dial your national emergency dispatch service directly (<strong>117</strong> / <strong>911</strong> in the Philippines).
         </p>
-        <p><strong>Philippines</strong></p>
+        <p><strong>National Crisis Lines (Philippines)</strong></p>
         <ul>
-          <li><strong>NCMH Crisis Hotline</strong> — 1553 · 0917-899-8727 (Globe/TM) · 0966-351-4518 (Smart)</li>
-          <li><strong>Hopeline Philippines</strong> — 2919 (toll-free Globe/TM) · 0917-558-4673 · 0918-873-4673</li>
-          <li><strong>In Touch Crisis Lines</strong> — (02) 8893-7603 · 0917-800-1123 · 0922-893-8944</li>
+          <li><strong>National Center for Mental Health (NCMH) Crisis Hotline</strong> — 1553 (Landline toll-free) · 0917-899-8727 (Globe/TM) · 0966-351-4518 (Smart/Sun)</li>
+          <li><strong>Hopeline Philippines</strong> — 2919 (Toll-free for Globe users) · 0917-558-4673 · 0918-873-4673</li>
+          <li><strong>In Touch Community Services Crisis Lines</strong> — (02) 8893-7603 · 0917-800-1123 · 0922-893-8944</li>
         </ul>
-        <p><strong>United States &amp; international</strong></p>
+        <p><strong>International Support Portals</strong></p>
         <ul>
-          <li><strong>988 Suicide &amp; Crisis Lifeline (US)</strong> — Call or text <a href="tel:988">988</a></li>
-          <li><strong>Crisis Text Line</strong> — Text <strong>HOME</strong> to 741741</li>
-          <li><strong>Find a helpline worldwide</strong> — <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">findahelpline.com</a></li>
+          <li><strong>988 Suicide &amp; Crisis Lifeline (US)</strong> — Dial or text <a href="tel:988">988</a></li>
+          <li><strong>Crisis Text Line</strong> — Send text containing <strong>HOME</strong> to 741741</li>
+          <li><strong>Global Helpline Directory</strong> — Access customized support localized to your region via <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">findahelpline.com</a></li>
         </ul>
       </div>`;
   }
- 
+
   return `
     <p class="interpretation-disclaimer">
-      This tool is for education and self-reflection only. It is not a medical diagnosis
-      and cannot replace advice from a qualified professional.
+      <strong>System Notice:</strong> This digital tool provides academic-grade primary psychometric screening based on the DASS-21 framework and predictive statistical modeling. It does not issue diagnostic declarations, formulate psychiatric prescriptions, or supplant formal, face-to-face professional diagnostic examinations.
     </p>
     <section class="interpretation-section">
-      <h3>Your results</h3>
+      <h3>DASS-21 Subscale Quantified Results</h3>
       <ul>${resultsList}</ul>
     </section>
     ${meaningSection}
     ${predictive}
     <section class="interpretation-section">
-      <h3>Recommendations</h3>
+      <h3>Evidence-Based Action Recommendations</h3>
       ${recommendations}
     </section>
     ${crisis}
     <section class="interpretation-section">
-      <h3>Learn more</h3>
-      <p>See score bands, severity explanations, and additional resources on the <a href="/info">information page</a>.</p>
+      <h3>Academic Documentation & Context</h3>
+      <p>To verify score stratifications, access reliability data, and review predictive engineering guidelines, navigate to the <a href="/info">System Information and Methodology Page</a>.</p>
     </section>`;
 }
 
@@ -227,13 +256,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const restartBtn = document.getElementById("restart-assessment");
   const interpretBtn = document.getElementById("interpret-findings-btn");
   const interpretationModal = document.getElementById(
-    "findings-interpretation-modal"
+    "findings-interpretation-modal",
   );
   const interpretationBody = document.getElementById("interpretation-body");
   const interpretationClose = document.getElementById("interpretation-close");
-  const interpretationBackdrop = interpretationModal?.querySelector(
-    "[data-close-modal]"
-  );
+  const interpretationBackdrop =
+    interpretationModal?.querySelector("[data-close-modal]");
 
   let lastFindings = null;
 
@@ -335,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
       returnBtn.classList.add("btn--back-active");
     }
     setNextButtonLabel(
-      currentGroupIndex === groups.length - 1 ? "Submit" : "Next"
+      currentGroupIndex === groups.length - 1 ? "Submit" : "Next",
     );
   }
 
@@ -380,8 +408,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!interpretationModal) return [];
     return Array.from(
       interpretationModal.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      )
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      ),
     ).filter((el) => !el.disabled && el.offsetParent !== null);
   }
 
@@ -489,7 +517,7 @@ document.addEventListener("DOMContentLoaded", () => {
         Number(data.depression_increase_likelihood) * 100
       ).toFixed(2)}%`;
       magnitude.innerHTML = `${Number(
-        data.depression_increase_magnitude
+        data.depression_increase_magnitude,
       ).toFixed(2)}`;
       const futureScoreNum = Number(data.depression_increase_magnitude + 13);
       future.innerHTML = futureScoreNum.toFixed(2);
