@@ -1,6 +1,6 @@
 # DASS-21 Amplified
 
-An intelligent mental health assessment web application that extends the standardized DASS-21 psychological screening tool with predictive analytics and NLP-powered symptom detection.
+An intelligent mental health assessment web application that extends the standardized DASS-21 psychological screening tool with predictive analytics.
 
 ---
 
@@ -8,7 +8,7 @@ An intelligent mental health assessment web application that extends the standar
 
 - **DASS-21 Assessment** — Guided 21-question questionnaire computing Depression, Anxiety, and Stress scores with severity classification
 - **Predictive Analytics** — Logistic and linear regression models forecasting the likelihood and magnitude of depression severity escalation based on anxiety and stress subscores
-- **Symptom Identifier** — NLP-powered free-text analyzer that detects and classifies DASS-21-related symptoms from user input with negation-aware context handling
+- **Interpretation & resources** — Plain-language result interpretation on the assessment page and an information page with scoring reference and crisis resources
 
 ---
 
@@ -18,7 +18,6 @@ An intelligent mental health assessment web application that extends the standar
 |---|---|
 | Backend | Python, Flask, Flask-CORS |
 | Machine Learning | scikit-learn (Logistic & Linear Regression), joblib |
-| NLP | spaCy (`en_core_web_sm`), PhraseMatcher |
 | Data Processing | pandas, numpy |
 | Frontend | HTML, CSS, JavaScript |
 
@@ -31,21 +30,18 @@ dass21-amplified/
 ├── app.py                      # Flask application entry point
 ├── dataset.xlsx                # Training data (DASS-21 survey responses)
 ├── scripts/
-│   ├── model.py                # DASSModel: training, loading, prediction
-│   └── nlp.py                  # NLP symptom analyzer
+│   └── model.py                # DASSModel: training, loading, prediction
 ├── static/
 │   ├── style/
+│   │   ├── common.css
 │   │   ├── index.css
-│   │   └── nlp.css
-│   ├── js/
-│   │   ├── index.js
-│   │   └── nlp.js
-│   └── assets/
-│       ├── home.png
-│       └── list.png
+│   │   └── info.css
+│   └── js/
+│       ├── index.js
+│       └── loading.js
 └── templates/
     ├── index.html              # DASS-21 questionnaire & results
-    └── nlp.html                # Symptom identifier
+    └── info.html               # Information & resources
 ```
 
 ---
@@ -67,19 +63,14 @@ dass21-amplified/
 
 2. **Install dependencies**
    ```bash
-   pip install flask flask-cors scikit-learn pandas numpy joblib spacy openpyxl
+   pip install -r requirements.txt
    ```
 
-3. **Download the spaCy language model**
-   ```bash
-   python -m spacy download en_core_web_sm
-   ```
-
-4. **Add your dataset**
+3. **Add your dataset**
 
    Place your `dataset.xlsx` file in the root directory. The file should contain DASS-21 survey responses with columns for each of the 21 questions using the response scale: `Never`, `Sometimes`, `Often`, `Very Often`.
 
-5. **Train and save the models**
+4. **Train and save the models**
 
    On first run, the app will automatically detect missing model files and train them from your dataset:
    ```bash
@@ -87,7 +78,7 @@ dass21-amplified/
    ```
    This generates `dass_logistic_model.pkl` and `dass_linear_model.pkl` in the `scripts/` directory.
 
-6. **Run the application**
+5. **Run the application**
    ```bash
    python app.py
    ```
@@ -100,44 +91,8 @@ dass21-amplified/
 | Method | Endpoint | Description |
 |---|---|---|
 | `GET` | `/` | DASS-21 questionnaire page |
-| `GET` | `/detect` | Symptom identifier page |
-| `POST` | `/processText` | Analyze free-text input for DASS-21 symptoms |
+| `GET` | `/info` | Information and resources page |
 | `POST` | `/computeDASS` | Compute scores and predictions from questionnaire answers |
-
-### `POST /processText`
-
-**Request**
-```json
-{ "text": "I've been feeling really anxious and stressed lately." }
-```
-
-**Response**
-```json
-{
-  "matched_symptoms": {
-    "Depression": [],
-    "Anxiety": ["anxious"],
-    "Stress": ["stressed"]
-  },
-  "symptom_counts": {
-    "Depression": 0,
-    "Anxiety": 1,
-    "Stress": 1
-  },
-  "matched_items": [
-    {
-      "id": 14,
-      "category": "Anxiety",
-      "label": "I felt scared without any good reason",
-      "evidence": "anxious"
-    }
-  ]
-}
-```
-
-`symptom_counts` reflect the number of **unique DASS-21 items** matched per category, not raw phrase hits.
-
-**Validation errors** (`400`): missing/empty text, or text longer than 2000 characters.
 
 ### `POST /computeDASS`
 
@@ -196,19 +151,6 @@ dass21-amplified/
 | 34+ | Extremely Severe |
 
 > Scores are multiplied by 2 to align with the full DASS-42 scale.
-
----
-
-## Running tests
-
-```bash
-pip install pytest   # optional; unittest also works
-python -m pytest tests/test_nlp.py -v
-# or
-python -m unittest tests.test_nlp
-```
-
-Requires `en_core_web_sm` (`python -m spacy download en_core_web_sm`).
 
 ---
 

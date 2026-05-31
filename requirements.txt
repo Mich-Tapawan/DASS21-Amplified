@@ -2,7 +2,6 @@ flask
 flask-cors
 pandas
 numpy
-scipy
 scikit-learn
 joblib
-spacy
+openpyxl

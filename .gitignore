@@ -97,6 +97,3 @@ dataset.xlsx
 scripts/*.pkl
 dass_logistic_model.pkl
 dass_linear_model.pkl
-
-# spaCy model cache (if downloaded outside venv)
-models/
