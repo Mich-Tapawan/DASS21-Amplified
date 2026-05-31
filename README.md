@@ -4,6 +4,18 @@ An intelligent mental health assessment web application that extends the standar
 
 ---
 
+## Screenshots
+
+![DASS-21 questionnaire](static/assets/github_screenshots/questionnaire.jpg)
+
+
+![Submitting the assessment](static/assets/github_screenshots/submission.jpg)
+
+
+![Assessment findings and scores](static/assets/github_screenshots/result.jpg)
+
+---
+
 ## Features
 
 - **DASS-21 Assessment** — Guided 21-question questionnaire computing Depression, Anxiety, and Stress scores with severity classification
