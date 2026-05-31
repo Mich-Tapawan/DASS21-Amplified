@@ -6,13 +6,11 @@ An intelligent mental health assessment web application that extends the standar
 
 ## Screenshots
 
-![DASS-21 questionnaire](static/assets/github_screenshots/questionnaire.jpg)
-
-
-![Submitting the assessment](static/assets/github_screenshots/submission.jpg)
-
-
-![Assessment findings and scores](static/assets/github_screenshots/result.jpg)
+<div align="center">
+  <img src="static/assets/github_screenshots/questionnaire.jpg" alt="Questionnaire" width="400">
+  <img src="static/assets/github_screenshots/submission.jpg" alt="Submission" width="400">
+  <img src="static/assets/github_screenshots/result.jpg" alt="Results" width="400">
+</div>
 
 ---
 
