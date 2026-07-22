@@ -71,27 +71,46 @@ function highestSeverity(data) {
   );
 }
 
+function severityPillClass(severity) {
+  const map = {
+    Normal: "sev-pill--normal",
+    Mild: "sev-pill--mild",
+    Moderate: "sev-pill--moderate",
+    Severe: "sev-pill--severe",
+    "Extremely Severe": "sev-pill--extreme",
+  };
+  return map[severity] || "sev-pill--normal";
+}
+
+function iconSvg(name) {
+  const icons = {
+    info: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/></svg>`,
+    chart: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>`,
+    trend: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"/></svg>`,
+    doc: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>`,
+    bulb: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>`,
+    check: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>`,
+    book: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>`,
+    warn: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg>`,
+  };
+  return icons[name] || "";
+}
+
 function buildInterpretationHTML(data) {
-  // 1. Data Parsing & Score Formatting
   const likelihoodPct = (
     Number(data.depression_increase_likelihood) * 100
   ).toFixed(2);
   const magnitudeVal = Number(data.depression_increase_magnitude).toFixed(2);
-
-  // Per your research methodology, the baseline escalation threshold score is exactly 13
   const DEPRESSION_THRESHOLD = 13;
   const futureScore = (
     Number(data.depression_increase_magnitude) + DEPRESSION_THRESHOLD
   ).toFixed(2);
-  const futureSev = data.futureSeverity;
+  const futureSev = data.futureSeverity || computeFutureSeverity(futureScore);
 
-  const highest = highestSeverity(data);
+  const highest = highestSeverity({ ...data, futureSeverity: futureSev });
   const highestRank = severityRank(highest);
   const depressionRank = severityRank(data.depression_severity);
   const likelihoodNum = Number(data.depression_increase_likelihood);
-
-  // Logic triggers for predictive insights and critical interventions
-  const showPredictive = likelihoodNum >= 0.5 || severityRank(futureSev) >= 2;
   const showCrisis =
     highestRank >= 3 || (depressionRank >= 2 && likelihoodNum >= 0.5);
 
@@ -116,135 +135,181 @@ function buildInterpretationHTML(data) {
     },
   ];
 
-  // Results List — Formatted dynamically with research data properties
-  const resultsList =
-    scales
-      .map(
-        ({ label, score, severity }) =>
-          `<li data-severity="${escapeHtml(severity)}">
-      Your ${escapeHtml(label.toLowerCase())} score is <strong>${escapeHtml(score)}</strong>
-      <span style="color:var(--modal-text-muted);font-weight:400"> · ${escapeHtml(severity)}</span>
-    </li>`,
-      )
-      .join("") +
-    `<li>Likelihood of escalating past mild depression threshold (>13): <strong>${escapeHtml(likelihoodPct)}%</strong></li>
-   <li>Predicted magnitude of deviation from threshold: <strong>${escapeHtml(magnitudeVal)}</strong> points</li>
-   <li data-severity="${escapeHtml(futureSev)}">Projected progression score: <strong>${escapeHtml(futureScore)}</strong>
-     <span style="color:var(--modal-text-muted);font-weight:400"> · ${escapeHtml(futureSev)}</span>
-   </li>`;
+  const scoreRows = scales
+    .map(
+      ({ label, score, severity }) => `
+      <div class="interp-score-row" data-severity="${escapeHtml(severity)}">
+        <p class="interp-score-row__text">
+          Your ${escapeHtml(label.toLowerCase())} score is
+          <strong>${escapeHtml(score)}</strong>
+        </p>
+        <span class="sev-pill ${severityPillClass(severity)}">${escapeHtml(severity)}</span>
+      </div>`,
+    )
+    .join("");
 
-  // What this means section — Drawing from SCALE_BLURBS
-  let meaningItems = "";
-  scales.forEach(({ label, score, severity, key }) => {
-    if (severityRank(severity) >= 1) {
-      const blurb = SCALE_BLURBS[key][severity];
-      if (blurb) {
-        meaningItems += `<li data-severity="${escapeHtml(severity)}"><strong>${escapeHtml(label)}</strong> — ${escapeHtml(blurb)}</li>`;
-      }
-    }
-  });
-
-  const meaningSection =
-    meaningItems.length > 0
-      ? `<section class="interpretation-section">
-        <h3>Symptom Categorization & Meaning</h3>
-        <ul>${meaningItems}</ul>
-      </section>`
-      : `<section class="interpretation-section">
-        <h3>Symptom Categorization & Meaning</h3>
-        <p>Your current screening indicates that scores map inside the normal, sub-clinical spectrum. Continue reinforcing adaptive coping strategies and monitor your state regularly.</p>
-      </section>`;
-
-  // Recommendations matched to the screening thresholds
-  let recommendations = "";
-  if (highestRank <= 1) {
-    recommendations = `
-      <p>Your data matches low-risk baseline profiles. To maintain psychological wellbeing, prioritize primary preventative habits:</p>
-      <ul>
-        <li>Maintain consistent circadian rhythms and basic sleep hygiene.</li>
-        <li>Leverage local peer-support ecosystems or speak to your family/trusted circles.</li>
-        <li>Incorporate deliberate stress-unwinding patterns within your academic schedule.</li>
-        <li>If subtle psychological fluctuations persist, consider initiating a proactive consultation with a school guidance counselor.</li>
-      </ul>`;
-  } else if (highestRank === 2) {
-    recommendations = `
-      <p>Your responses display clinical indicators that point toward moderate distress. Early intervention can significantly mitigate progression risk:</p>
-      <ul>
-        <li>Schedule an appointment with your campus guidance unit or an accessible mental health general practitioner to explore clinical evaluation.</li>
-        <li>Discuss your current distress markers with a trusted advocate, teacher, or family member.</li>
-        <li>Establish baseline regulatory boundaries (e.g., balanced screen time, structured resting intervals, complete avoidance of unprescribed substances).</li>
-        <li>Remember that seeking screening support early prevents the compounding effect of concurrent stress and anxiety.</li>
-      </ul>`;
+  let meaningBody = "";
+  const elevated = scales.filter(({ severity }) => severityRank(severity) >= 1);
+  if (elevated.length === 0) {
+    meaningBody = `<p>Your current screening indicates that scores fall within the normal range. Continue healthy routines and check in with yourself regularly.</p>`;
   } else {
-    recommendations = `
-      <p>Your screening profile reveals highly elevated symptoms indicating profound clinical distress. Swift, professional care pathways are strongly advised:</p>
-      <ul>
-        <li>Coordinate immediately with a licensed therapist, clinical psychologist, psychiatrist, or emergency medical team.</li>
-        <li>Explicitly inform your closest family members or legal guardians regarding the intensity of what you are navigating today.</li>
-        <li>If you sense an immediate compromise in safety or are struggling to hold steady, please bypass self-care protocols and directly use the immediate response channels listed below.</li>
-      </ul>`;
+    meaningBody = `<ul class="interp-meaning-list">${elevated
+      .map(({ label, severity, key }) => {
+        const blurb = SCALE_BLURBS[key][severity];
+        return blurb
+          ? `<li data-severity="${escapeHtml(severity)}"><strong>${escapeHtml(label)} (${escapeHtml(severity)})</strong> — ${escapeHtml(blurb)}</li>`
+          : "";
+      })
+      .join("")}</ul>`;
   }
 
-  // Predictive Analytical Context
-  let predictive = "";
-  if (showPredictive) {
-    predictive = `
-      <section class="interpretation-section">
-        <h3>Predictive Analytics Overview (ML Model Context)</h3>
-        <p>
-          By processing your concurrent anxiety and stress indicators against our study's historical patterns, the underlying predictive models identify a 
-          <strong>${escapeHtml(likelihoodPct)}%</strong> probability of your depressive symptoms escalating past the sub-clinical ceiling (Score > 13). 
-          The linear pipeline projects a corresponding future score plateau around <strong>${escapeHtml(futureScore)}</strong> (${escapeHtml(futureSev)}).
-        </p>
-        <p>
-          <em>Methodological Disclaimer:</em> This metric represents a mathematical probability curve derived from correlational analysis of adolescent cohorts; it serves as an early-warning signal rather than an immutable clinical diagnostic forecast. Targeted behavioral adjustments and professional support regularly disrupt these upward trends.
-        </p>
-      </section>`;
+  let recommendationItems = [];
+  let recommendationIntro = "";
+  if (highestRank <= 1) {
+    recommendationIntro =
+      "Your results are in a lower range. To support wellbeing, consider:";
+    recommendationItems = [
+      "Maintain regular sleep, meals, and gentle physical activity when possible.",
+      "Stay connected with people you trust; isolation can worsen low mood and anxiety.",
+      "Use brief grounding or breathing exercises when stress builds.",
+      "If subtle changes persist for two weeks or more, consider speaking with a counselor or GP.",
+    ];
+  } else if (highestRank === 2) {
+    recommendationIntro =
+      "Your responses suggest moderate distress. Early support can help:";
+    recommendationItems = [
+      "Consider scheduling time with a counselor, GP, or licensed mental health professional.",
+      "Talk with a trusted friend, family member, or teacher about how you have been feeling.",
+      "Protect sleep, rest, and limits on alcohol or stimulants if they worsen how you feel.",
+      "Review scoring bands and self-care ideas on the Information page.",
+    ];
+  } else {
+    recommendationIntro =
+      "Your screening shows elevated symptoms. Professional support is strongly encouraged:";
+    recommendationItems = [
+      "Contact a licensed therapist, psychologist, psychiatrist, or your local clinical service.",
+      "Let a trusted family member or close support person know what you are experiencing.",
+      "If you feel unsafe or in immediate danger, use emergency or crisis channels below.",
+    ];
   }
 
-  // Localized Philippine Emergency / Crisis Unit Mapping
-  let crisis = "";
-  if (showCrisis) {
-    crisis = `
-      <div class="interpretation-highlight" role="region" aria-label="Crisis resources">
-        <h3>Immediate Crisis & Support Action Channels</h3>
-        <p>
-          <strong>If you or anyone around you is in immediate physical risk:</strong> 
-          Dial your national emergency dispatch service directly (<strong>117</strong> / <strong>911</strong> in the Philippines).
-        </p>
-        <p><strong>National Crisis Lines (Philippines)</strong></p>
-        <ul>
-          <li><strong>National Center for Mental Health (NCMH) Crisis Hotline</strong> — 1553 (Landline toll-free) · 0917-899-8727 (Globe/TM) · 0966-351-4518 (Smart/Sun)</li>
-          <li><strong>Hopeline Philippines</strong> — 2919 (Toll-free for Globe users) · 0917-558-4673 · 0918-873-4673</li>
-          <li><strong>In Touch Community Services Crisis Lines</strong> — (02) 8893-7603 · 0917-800-1123 · 0922-893-8944</li>
-        </ul>
-        <p><strong>International Support Portals</strong></p>
-        <ul>
-          <li><strong>988 Suicide &amp; Crisis Lifeline (US)</strong> — Dial or text <a href="tel:988">988</a></li>
-          <li><strong>Crisis Text Line</strong> — Send text containing <strong>HOME</strong> to 741741</li>
-          <li><strong>Global Helpline Directory</strong> — Access customized support localized to your region via <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">findahelpline.com</a></li>
-        </ul>
-      </div>`;
-  }
+  const recommendationList = recommendationItems
+    .map(
+      (item) => `
+      <li>
+        <span class="interp-rec__icon">${iconSvg("check")}</span>
+        <span>${escapeHtml(item)}</span>
+      </li>`,
+    )
+    .join("");
+
+  const crisis = showCrisis
+    ? `
+    <section class="interp-card interp-card--crisis" role="region" aria-label="Crisis resources">
+      <h3 class="interp-card__title">
+        <span class="interp-card__icon">${iconSvg("warn")}</span>
+        Immediate help
+      </h3>
+      <p>
+        If you or someone else is in <strong>immediate danger</strong>, call your
+        local emergency number — <strong>117</strong> or <strong>911</strong> in
+        the Philippines, <strong>999</strong> in the UK, <strong>911</strong> in
+        the US.
+      </p>
+      <ul class="interp-crisis-list">
+        <li><strong>NCMH Crisis Hotline (PH)</strong> — 1553 · 0917-899-8727 · 0966-351-4518</li>
+        <li><strong>Hopeline Philippines</strong> — 2919 · 0917-558-4673 · 0918-873-4673</li>
+        <li><strong>In Touch Crisis Lines</strong> — (02) 8893-7603 · 0917-800-1123</li>
+        <li><strong>988 Lifeline (US)</strong> — call or text <a href="tel:988">988</a></li>
+        <li><strong>Crisis Text Line</strong> — text <strong>HOME</strong> to 741741</li>
+        <li><a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">findahelpline.com</a> for local helplines</li>
+      </ul>
+      <p><a class="interp-inline-link" href="/info#crisis">More crisis resources on the Info page →</a></p>
+    </section>`
+    : "";
 
   return `
-    <p class="interpretation-disclaimer">
-      <strong>System Notice:</strong> This digital tool provides academic-grade primary psychometric screening based on the DASS-21 framework and predictive statistical modeling. It does not issue diagnostic declarations, formulate psychiatric prescriptions, or supplant formal, face-to-face professional diagnostic examinations.
-    </p>
-    <section class="interpretation-section">
-      <h3>DASS-21 Subscale Quantified Results</h3>
-      <ul>${resultsList}</ul>
+    <aside class="interp-notice">
+      <span class="interp-notice__icon">${iconSvg("info")}</span>
+      <div>
+        <p class="interp-notice__label">System notice</p>
+        <p>
+          This tool provides educational DASS-21 screening and predictive
+          statistical modeling. It is <strong>not</strong> a diagnosis, prescription,
+          or substitute for professional clinical assessment.
+        </p>
+      </div>
+    </aside>
+
+    <section class="interp-card">
+      <h3 class="interp-card__title">
+        <span class="interp-card__icon">${iconSvg("chart")}</span>
+        DASS-21 subscale results
+      </h3>
+      <div class="interp-score-list">${scoreRows}</div>
     </section>
-    ${meaningSection}
-    ${predictive}
-    <section class="interpretation-section">
-      <h3>Evidence-Based Action Recommendations</h3>
-      ${recommendations}
+
+    <section class="interp-card">
+      <h3 class="interp-card__title">
+        <span class="interp-card__icon">${iconSvg("trend")}</span>
+        Predictive insights
+      </h3>
+      <div class="interp-metrics">
+        <article class="interp-metric">
+          <span class="interp-metric__icon">${iconSvg("trend")}</span>
+          <p class="interp-metric__label">Escalation likelihood</p>
+          <p class="interp-metric__value">${escapeHtml(likelihoodPct)}%</p>
+          <p class="interp-metric__caption">Past mild depression threshold (&gt;13)</p>
+        </article>
+        <article class="interp-metric">
+          <span class="interp-metric__icon">${iconSvg("chart")}</span>
+          <p class="interp-metric__label">Threshold deviation</p>
+          <p class="interp-metric__value">${escapeHtml(magnitudeVal)} pts</p>
+          <p class="interp-metric__caption">Relative to mild cut-off (score of 13)</p>
+        </article>
+      </div>
+      <div class="interp-projected">
+        <p>
+          Projected progression score:
+          <strong>${escapeHtml(futureScore)}</strong>
+        </p>
+        <span class="sev-pill ${severityPillClass(futureSev)}">${escapeHtml(futureSev)}</span>
+      </div>
+      <p class="interp-note">
+        These metrics come from logistic and linear models trained on survey
+        data. They are statistical projections for education—not a forecast of
+        your personal future.
+      </p>
     </section>
+
+    <section class="interp-card">
+      <h3 class="interp-card__title">
+        <span class="interp-card__icon">${iconSvg("doc")}</span>
+        Symptom categorization &amp; meaning
+      </h3>
+      ${meaningBody}
+    </section>
+
+    <section class="interp-card">
+      <h3 class="interp-card__title">
+        <span class="interp-card__icon">${iconSvg("bulb")}</span>
+        Action recommendations
+      </h3>
+      <p>${escapeHtml(recommendationIntro)}</p>
+      <ul class="interp-rec-list">${recommendationList}</ul>
+    </section>
+
     ${crisis}
-    <section class="interpretation-section">
-      <h3>Academic Documentation & Context</h3>
-      <p>To verify score stratifications, access reliability data, and review predictive engineering guidelines, navigate to the <a href="/info">System Information and Methodology Page</a>.</p>
+
+    <section class="interp-card interp-card--docs">
+      <span class="interp-docs__icon">${iconSvg("book")}</span>
+      <div>
+        <p class="interp-docs__label">Documentation</p>
+        <p>
+          Review score cut-offs, severity bands, and methodology on the
+          <a class="interp-inline-link" href="/info">Information &amp; resources page</a>.
+        </p>
+      </div>
     </section>`;
 }
 
