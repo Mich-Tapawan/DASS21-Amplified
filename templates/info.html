@@ -13,10 +13,11 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <header class="app-header">
+  <body class="info-body">
+    <header class="app-header landing-header">
       <p class="app-header__title">DASS21 — Amplified</p>
       <nav class="nav-actions" aria-label="Main navigation">
+        <!-- Icons: Heroicons v2.2.0 (MIT) -->
         <a href="/" title="Home" aria-label="Home">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,483 +75,595 @@
     </header>
 
     <main class="page-wrap info-page">
-      <div class="page-hero">
-        <h1 class="page-hero__title">Information &amp; resources</h1>
-        <p class="page-hero__lede">
+      <header class="info-hero">
+        <h1 class="info-hero__title">Information &amp; resources</h1>
+        <p class="info-hero__lede">
           How to read your results, what the scores mean, and where to find
           support if you need help.
         </p>
         <nav class="info-toc" aria-label="On this page">
           <a href="#disclaimer">Disclaimer</a>
-          <a href="#scores">Scores</a>
-          <a href="#severity">Severity</a>
-          <a href="#predictions">Predictions</a>
+          <a href="#scores">Scores &amp; bands</a>
+          <a href="#severity">Severity explained</a>
+          <a href="#predictions">ML predictions</a>
           <a href="#self-care">Self-care</a>
-          <a href="#crisis">Crisis</a>
+          <a href="#crisis">Crisis support</a>
         </nav>
-      </div>
+      </header>
 
-      <div class="info-sections">
-        <section id="disclaimer" class="info-block info-disclaimer">
-          <h2>Important disclaimer</h2>
-          <div class="info-section__body">
-            <p>
-              This application is for
-              <strong>educational and research purposes only</strong>. It is not
-              a substitute for professional psychological diagnosis, treatment,
-              or clinical assessment. Results reflect a screening tool and
-              statistical models—not a medical opinion. Always consult a
-              qualified mental health professional for personal advice.
-            </p>
-          </div>
-        </section>
+      <!-- Disclaimer -->
+      <aside id="disclaimer" class="info-callout" aria-labelledby="disclaimer-title">
+        <div class="info-callout__icon" aria-hidden="true">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z"
+            />
+          </svg>
+        </div>
+        <div>
+          <h2 id="disclaimer-title">Clinical disclaimer</h2>
+          <p>
+            This application is for
+            <strong>educational and research purposes only</strong>. The DASS-21
+            is a screening tool, not a diagnostic instrument. Results reflect
+            symptom intensity over the past week and statistical models—not a
+            formal diagnosis or medical opinion. Always consult a qualified
+            mental health professional for personal advice.
+          </p>
+        </div>
+      </aside>
 
-        <section id="scores" class="info-block">
-          <h2>Understanding your DASS-21 scores</h2>
-          <div class="info-section__body">
-            <p>
-              The Depression, Anxiety and Stress Scale (DASS-21) uses 21
-              questions grouped into three subscales. Each item is scored 0–3
-              (Never to Very Often), then subscale totals are
-              <strong>multiplied by 2</strong> to align with the full DASS-42
-              scale. Your severity band is determined by comparing your score to
-              established cut-offs below.
-            </p>
-            <p>
-              Official reference:
-              <a
-                class="info-ref-link"
-                href="https://www2.psy.unsw.edu.au/dass/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >UNSW DASS-21</a
-              >
-            </p>
-
-            <div class="info-score-accordions">
-              <details class="info-accordion">
-                <summary class="info-accordion__summary">Depression</summary>
-                <div class="info-table-wrap">
-                  <table class="info-table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Score</th>
-                        <th scope="col">Severity</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>0–9</td>
-                        <td><span class="sev-pill sev-pill--normal">Normal</span></td>
-                      </tr>
-                      <tr>
-                        <td>10–13</td>
-                        <td><span class="sev-pill sev-pill--mild">Mild</span></td>
-                      </tr>
-                      <tr>
-                        <td>14–20</td>
-                        <td><span class="sev-pill sev-pill--moderate">Moderate</span></td>
-                      </tr>
-                      <tr>
-                        <td>21–27</td>
-                        <td><span class="sev-pill sev-pill--severe">Severe</span></td>
-                      </tr>
-                      <tr>
-                        <td>28+</td>
-                        <td><span class="sev-pill sev-pill--extreme">Extremely Severe</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </details>
-
-              <details class="info-accordion">
-                <summary class="info-accordion__summary">Anxiety</summary>
-                <div class="info-table-wrap">
-                  <table class="info-table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Score</th>
-                        <th scope="col">Severity</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>0–7</td>
-                        <td><span class="sev-pill sev-pill--normal">Normal</span></td>
-                      </tr>
-                      <tr>
-                        <td>8–9</td>
-                        <td><span class="sev-pill sev-pill--mild">Mild</span></td>
-                      </tr>
-                      <tr>
-                        <td>10–14</td>
-                        <td><span class="sev-pill sev-pill--moderate">Moderate</span></td>
-                      </tr>
-                      <tr>
-                        <td>15–19</td>
-                        <td><span class="sev-pill sev-pill--severe">Severe</span></td>
-                      </tr>
-                      <tr>
-                        <td>20+</td>
-                        <td><span class="sev-pill sev-pill--extreme">Extremely Severe</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </details>
-
-              <details class="info-accordion">
-                <summary class="info-accordion__summary">Stress</summary>
-                <div class="info-table-wrap">
-                  <table class="info-table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Score</th>
-                        <th scope="col">Severity</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>0–14</td>
-                        <td><span class="sev-pill sev-pill--normal">Normal</span></td>
-                      </tr>
-                      <tr>
-                        <td>15–18</td>
-                        <td><span class="sev-pill sev-pill--mild">Mild</span></td>
-                      </tr>
-                      <tr>
-                        <td>19–25</td>
-                        <td><span class="sev-pill sev-pill--moderate">Moderate</span></td>
-                      </tr>
-                      <tr>
-                        <td>26–33</td>
-                        <td><span class="sev-pill sev-pill--severe">Severe</span></td>
-                      </tr>
-                      <tr>
-                        <td>34+</td>
-                        <td><span class="sev-pill sev-pill--extreme">Extremely Severe</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </details>
-            </div>
-          </div>
-        </section>
-
-        <section id="severity" class="info-block">
-          <h2>What severity levels may mean</h2>
-          <div class="info-section__body">
-            <p>
-              These descriptions are general guidance for each band. Individual
-              experiences vary; a professional can help interpret results in
-              context.
-            </p>
-            <ul class="severity-list">
-              <li>
-                <span class="sev-pill sev-pill--normal">Normal</span>
-                Scores are within a typical range for the general population on
-                that subscale.
-              </li>
-              <li>
-                <span class="sev-pill sev-pill--mild">Mild</span>
-                Some symptoms may be present but are often manageable with
-                self-care and lifestyle support.
-              </li>
-              <li>
-                <span class="sev-pill sev-pill--moderate">Moderate</span>
-                Symptoms are more noticeable and may affect daily life; consider
-                speaking with a counselor or GP.
-              </li>
-              <li>
-                <span class="sev-pill sev-pill--severe">Severe</span>
-                Symptoms are likely interfering with functioning; professional
-                support is recommended.
-              </li>
-              <li>
-                <span class="sev-pill sev-pill--extreme">Extremely severe</span>
-                Symptoms are intense and persistent; seek prompt help from a
-                mental health professional.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="predictions" class="info-block">
-          <h2>Predictive findings</h2>
-          <div class="info-section__body">
-            <p>
-              After you submit the questionnaire on the
-              <a class="info-ref-link" href="/test">assessment page</a>,
-              additional metrics estimate patterns based on machine learning
-              models trained on survey data:
-            </p>
-            <ul>
-              <li>
-                <strong>Likelihood of surpassing mild depression:</strong> A
-                percentage estimate of whether your depression score may move
-                above the mild threshold, given your current anxiety and stress
-                scores.
-              </li>
-              <li>
-                <strong>Magnitude of deviation from mild depression:</strong>
-                How far your depression score may sit above or below the mild
-                cut-off (score of 13), in model units.
-              </li>
-              <li>
-                <strong
-                  >Predicted future depression score &amp; severity:</strong
-                >
-                A projected depression score and corresponding severity band.
-                These are statistical projections, not forecasts of your
-                personal future.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="self-care" class="info-block">
-          <h2>Self-care and next steps</h2>
-          <div class="info-section__body">
-            <ul>
-              <li>
-                Maintain regular sleep, meals, and gentle physical activity when
-                possible.
-              </li>
-              <li>
-                Stay connected with people you trust; isolation can worsen low
-                mood and anxiety.
-              </li>
-              <li>Limit alcohol and stimulants if they worsen how you feel.</li>
-              <li>
-                Use brief grounding or breathing exercises when anxiety spikes.
-              </li>
-              <li>
-                If scores are mild or above, or symptoms persist for two weeks
-                or more, consider a school counselor, GP, or licensed mental
-                health professional.
-              </li>
-              <li>
-                Keep a simple log of mood and triggers to discuss with a
-                clinician if you seek help.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="crisis" class="info-block info-crisis">
-          <h2>Crisis and mental health resources</h2>
-          <div class="info-section__body">
-            <div class="crisis-alert">
-              <svg
-                class="crisis-alert__icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.75"
+      <!-- Scoring guide -->
+      <section id="scores" class="info-card" aria-labelledby="scores-title">
+        <div class="info-card__header">
+          <span class="info-card__header-icon" aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                aria-hidden="true"
+                d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
+              />
+            </svg>
+          </span>
+          <h2 id="scores-title">DASS-21 scoring guide</h2>
+        </div>
+        <p class="info-card__intro">
+          Each item is scored 0–3 (Never to Very Often). Subscale totals are
+          <strong>multiplied by 2</strong> to align with the full DASS-42 scale.
+          References:
+          <a
+            class="info-link"
+            href="https://www2.psy.unsw.edu.au/dass/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >UNSW DASS-21</a
+          >,
+          <a
+            class="info-link"
+            href="https://maic.qld.gov.au/wp-content/uploads/2016/07/DASS-21.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >original questionnaire (PDF)</a
+          >,
+          <a
+            class="info-link"
+            href="https://www.verywellmind.com/dass-21-depression-anxiety-scale-8697715"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Verywell Mind overview</a
+          >.
+        </p>
+        <div class="info-table-wrap">
+          <table class="info-score-table">
+            <thead>
+              <tr>
+                <th scope="col">Severity</th>
+                <th scope="col">Depression</th>
+                <th scope="col">Anxiety</th>
+                <th scope="col">Stress</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="sev-pill sev-pill--normal">Normal</span>
+                </td>
+                <td>0–9</td>
+                <td>0–7</td>
+                <td>0–14</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="sev-pill sev-pill--mild">Mild</span>
+                </td>
+                <td>10–13</td>
+                <td>8–9</td>
+                <td>15–18</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="sev-pill sev-pill--moderate">Moderate</span>
+                </td>
+                <td>14–20</td>
+                <td>10–14</td>
+                <td>19–25</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="sev-pill sev-pill--severe">Severe</span>
+                </td>
+                <td>21–27</td>
+                <td>15–19</td>
+                <td>26–33</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="sev-pill sev-pill--extreme">Extremely Severe</span>
+                </td>
+                <td>28+</td>
+                <td>20+</td>
+                <td>34+</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Severity tiers -->
+      <section id="severity" class="info-block" aria-labelledby="severity-title">
+        <h2 id="severity-title" class="info-block__title">
+          Understanding the tiers
+        </h2>
+        <p class="info-block__lede">
+          These descriptions are general guidance. Individual experiences vary; a
+          professional can help interpret results in context.
+        </p>
+        <ul class="tier-list">
+          <li class="tier-card">
+            <span class="sev-pill sev-pill--normal">Normal</span>
+            <p>
+              Scores are within a typical range for the general population on
+              that subscale.
+            </p>
+          </li>
+          <li class="tier-card">
+            <span class="sev-pill sev-pill--mild">Mild</span>
+            <p>
+              Some symptoms may be present but are often manageable with
+              self-care and lifestyle support.
+            </p>
+          </li>
+          <li class="tier-card">
+            <span class="sev-pill sev-pill--moderate">Moderate</span>
+            <p>
+              Symptoms are more noticeable and may affect daily life; consider
+              speaking with a counselor or GP.
+            </p>
+          </li>
+          <li class="tier-card">
+            <span class="sev-pill sev-pill--severe">Severe</span>
+            <p>
+              Symptoms are likely interfering with functioning; professional
+              support is recommended.
+            </p>
+          </li>
+          <li class="tier-card">
+            <span class="sev-pill sev-pill--extreme">Extremely Severe</span>
+            <p>
+              Symptoms are intense and persistent; seek prompt help from a
+              mental health professional.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ML methodology -->
+      <section
+        id="predictions"
+        class="info-ml"
+        aria-labelledby="predictions-title"
+      >
+        <h2 id="predictions-title">ML methodology</h2>
+        <p>
+          After you submit the questionnaire on the
+          <a class="info-link" href="/test">assessment page</a>, additional
+          metrics estimate patterns using logistic and linear regression models
+          trained on survey data. These are statistical projections for
+          education and research—not forecasts of your personal future.
+        </p>
+        <ul class="info-ml__list">
+          <li>
+            <span class="info-ml__icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
               >
                 <path
-                  d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z"
                 />
-                <line x1="12" y1="9" x2="12" y2="13" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z"
+                />
               </svg>
+            </span>
+            <div>
+              <h3>Logistic regression</h3>
               <p>
-                If you or someone else is in <strong>immediate danger</strong>,
-                call your local emergency number — <strong>117</strong> or
-                <strong>911</strong> in the Philippines, <strong>999</strong> in
-                the UK, <strong>911</strong> in the US.
+                Estimates the
+                <strong>likelihood of surpassing mild depression</strong>, given
+                your anxiety and stress scores (probability of moving above the
+                mild threshold). Background:
+                <a
+                  class="info-link"
+                  href="https://www.geeksforgeeks.org/machine-learning/understanding-logistic-regression/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Logistic regression explained</a
+                >.
               </p>
             </div>
-
-            <h3 class="crisis-region">Philippines</h3>
-            <div class="crisis-grid">
-              <div class="crisis-card">
-                <div class="crisis-card__icon crisis-card__icon--ph">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.18 6.18l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-                    />
-                  </svg>
-                </div>
-                <div class="crisis-card__body">
-                  <p class="crisis-card__name">NCMH Crisis Hotline</p>
-                  <ul class="crisis-card__nums">
-                    <li>1553 <span>landline</span></li>
-                    <li>0917-899-8727 <span>Globe/TM</span></li>
-                    <li>0966-351-4518 <span>Smart</span></li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="crisis-card">
-                <div class="crisis-card__icon crisis-card__icon--ph">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                    />
-                  </svg>
-                </div>
-                <div class="crisis-card__body">
-                  <p class="crisis-card__name">Hopeline Philippines</p>
-                  <ul class="crisis-card__nums">
-                    <li>2919 <span>toll-free Globe/TM</span></li>
-                    <li>0917-558-4673</li>
-                    <li>0918-873-4673</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="crisis-card">
-                <div class="crisis-card__icon crisis-card__icon--ph">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                </div>
-                <div class="crisis-card__body">
-                  <p class="crisis-card__name">In Touch Crisis Lines</p>
-                  <ul class="crisis-card__nums">
-                    <li>(02) 8893-7603</li>
-                    <li>0917-800-1123</li>
-                    <li>0922-893-8944</li>
-                  </ul>
-                </div>
-              </div>
+          </li>
+          <li>
+            <span class="info-ml__icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
+                />
+              </svg>
+            </span>
+            <div>
+              <h3>Linear regression</h3>
+              <p>
+                Estimates the
+                <strong>magnitude of deviation</strong> from the mild depression
+                cut-off (score of 13), and supports a projected future depression
+                score and severity band. Background:
+                <a
+                  class="info-link"
+                  href="https://www.geeksforgeeks.org/machine-learning/ml-linear-regression/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Linear regression explained</a
+                >.
+              </p>
             </div>
+          </li>
+        </ul>
+      </section>
 
-            <h3 class="crisis-region">United States &amp; international</h3>
-            <div class="crisis-grid">
-              <div class="crisis-card">
-                <div class="crisis-card__icon crisis-card__icon--intl">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.18 6.18l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
-                    />
-                  </svg>
-                </div>
-                <div class="crisis-card__body">
-                  <p class="crisis-card__name">
-                    988 Suicide &amp; Crisis Lifeline (US)
-                  </p>
-                  <ul class="crisis-card__nums">
-                    <li>Call or text <a href="tel:988">988</a></li>
-                    <li>
-                      <a
-                        href="https://988lifeline.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >988lifeline.org ↗</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
+      <!-- Self-care -->
+      <section id="self-care" class="info-block" aria-labelledby="self-care-title">
+        <h2 id="self-care-title" class="info-block__title">
+          General wellness tips
+        </h2>
+        <ul class="wellness-grid">
+          <li>
+            <span class="wellness-grid__check" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+            Maintain regular sleep, meals, and gentle physical activity when
+            possible.
+          </li>
+          <li>
+            <span class="wellness-grid__check" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+            Stay connected with people you trust; isolation can worsen low mood
+            and anxiety.
+          </li>
+          <li>
+            <span class="wellness-grid__check" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+            Use brief grounding or breathing exercises when anxiety spikes.
+          </li>
+          <li>
+            <span class="wellness-grid__check" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+            If scores are mild or above, or symptoms persist for two weeks or
+            more, consider a counselor, GP, or licensed professional.
+          </li>
+          <li>
+            <span class="wellness-grid__check" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+            Limit alcohol and stimulants if they worsen how you feel.
+          </li>
+          <li>
+            <span class="wellness-grid__check" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+            Keep a simple log of mood and triggers to discuss with a clinician
+            if you seek help.
+          </li>
+        </ul>
+      </section>
 
-              <div class="crisis-card">
-                <div class="crisis-card__icon crisis-card__icon--intl">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-                    />
-                  </svg>
-                </div>
-                <div class="crisis-card__body">
-                  <p class="crisis-card__name">Crisis Text Line</p>
-                  <ul class="crisis-card__nums">
-                    <li>Text <strong>HOME</strong> to 741741</li>
-                  </ul>
-                </div>
-              </div>
+      <!-- Crisis -->
+      <section id="crisis" class="info-block" aria-labelledby="crisis-title">
+        <h2 id="crisis-title" class="info-block__title">
+          Crisis and mental health resources
+        </h2>
 
-              <div class="crisis-card">
-                <div class="crisis-card__icon crisis-card__icon--intl">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.75"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="2" y1="12" x2="22" y2="12" />
-                    <path
-                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                    />
-                  </svg>
-                </div>
-                <div class="crisis-card__body">
-                  <p class="crisis-card__name">Find a helpline worldwide</p>
-                  <ul class="crisis-card__nums">
-                    <li>
-                      <a
-                        href="https://findahelpline.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >findahelpline.com ↗</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <p class="crisis-footnote">
-              Hotline availability and numbers may change. Verify current
-              details with the service provider before relying on them in an
-              emergency.
+        <div class="crisis-alert" role="note">
+          <svg
+            class="crisis-alert__icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+            />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          <div>
+            <p class="crisis-alert__title">Immediate help</p>
+            <p>
+              If you or someone else is in <strong>immediate danger</strong>,
+              call your local emergency number —
+              <strong>117</strong> or <strong>911</strong> in the Philippines,
+              <strong>999</strong> in the UK, <strong>911</strong> in the US.
             </p>
           </div>
-        </section>
-      </div>
+        </div>
+
+        <div class="crisis-grid">
+          <article class="crisis-tile">
+            <div class="crisis-tile__body">
+              <p class="crisis-tile__label">Philippines · NCMH</p>
+              <p class="crisis-tile__value">1553</p>
+              <p class="crisis-tile__meta">
+                National Center for Mental Health crisis hotline (landline). Also:
+                0917-899-8727 (Globe/TM), 0966-351-4518 (Smart).
+              </p>
+            </div>
+            <span class="crisis-tile__icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                />
+              </svg>
+            </span>
+          </article>
+
+          <article class="crisis-tile">
+            <div class="crisis-tile__body">
+              <p class="crisis-tile__label">Hopeline Philippines</p>
+              <p class="crisis-tile__value">2919</p>
+              <p class="crisis-tile__meta">
+                Toll-free on Globe/TM. Also: 0917-558-4673, 0918-873-4673.
+              </p>
+            </div>
+            <span class="crisis-tile__icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+                />
+              </svg>
+            </span>
+          </article>
+
+          <article class="crisis-tile">
+            <div class="crisis-tile__body">
+              <p class="crisis-tile__label">In Touch Crisis Lines</p>
+              <p class="crisis-tile__value">(02) 8893-7603</p>
+              <p class="crisis-tile__meta">
+                Also: 0917-800-1123, 0922-893-8944.
+              </p>
+            </div>
+            <span class="crisis-tile__icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
+                />
+              </svg>
+            </span>
+          </article>
+
+          <article class="crisis-tile">
+            <div class="crisis-tile__body">
+              <p class="crisis-tile__label">988 Lifeline (US)</p>
+              <p class="crisis-tile__value">
+                <a href="tel:988">988</a>
+              </p>
+              <p class="crisis-tile__meta">
+                Call or text.
+                <a
+                  href="https://988lifeline.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >988lifeline.org</a
+                >
+              </p>
+            </div>
+            <span class="crisis-tile__icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                />
+              </svg>
+            </span>
+          </article>
+
+          <article class="crisis-tile crisis-tile--wide">
+            <div class="crisis-tile__body">
+              <p class="crisis-tile__label">Crisis Text Line</p>
+              <p class="crisis-tile__value">Text HOME to 741741</p>
+              <p class="crisis-tile__meta">
+                Free, confidential text-based support.
+                Worldwide directory:
+                <a
+                  href="https://findahelpline.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >findahelpline.com</a
+                >
+              </p>
+            </div>
+            <span class="crisis-tile__icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.059-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"
+                />
+              </svg>
+            </span>
+          </article>
+        </div>
+
+        <p class="crisis-footnote">
+          Hotline availability and numbers may change. Verify current details
+          with the service provider before relying on them in an emergency.
+        </p>
+      </section>
     </main>
+
+    <footer class="landing-footer info-footer">
+      <p class="landing-footer__brand">DASS21 — Amplified</p>
+      <p class="landing-footer__copy">
+        An educational research tool that extends DASS-21 with predictive
+        analytics. Not a substitute for professional clinical advice.
+      </p>
+      <nav class="landing-footer__links" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/test">Assessment</a>
+        <a href="#disclaimer">Disclaimer</a>
+      </nav>
+    </footer>
   </body>
 </html>
