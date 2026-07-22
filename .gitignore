@@ -74,6 +74,7 @@ dmypy.json
 .project
 .pydevproject
 .settings/
+.cursor/
 
 # OS
 .DS_Store

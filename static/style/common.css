@@ -181,7 +181,7 @@ body {
   border-color: #e2e8f0;
 }
 
-/* First-step “back” = visually muted (used by index #return) */
+/* First-step “back” = visually muted (used by test #return) */
 .btn--back-muted {
   background: var(--color-back);
   color: var(--color-text);

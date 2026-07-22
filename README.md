@@ -18,7 +18,7 @@ An intelligent mental health assessment web application that extends the standar
 
 - **DASS-21 Assessment** — Guided 21-question questionnaire computing Depression, Anxiety, and Stress scores with severity classification
 - **Predictive Analytics** — Logistic and linear regression models forecasting the likelihood and magnitude of depression severity escalation based on anxiety and stress subscores
-- **Interpretation & resources** — Plain-language result interpretation on the assessment page and an information page with scoring reference and crisis resources
+- **Landing & resources** — Product overview on the home page, plain-language result interpretation on the assessment, and an information page with scoring reference and crisis resources
 
 ---
 
@@ -43,14 +43,18 @@ dass21-amplified/
 │   └── model.py                # DASSModel: training, loading, prediction
 ├── static/
 │   ├── style/
-│   │   ├── common.css
-│   │   ├── index.css
-│   │   └── info.css
-│   └── js/
-│       ├── index.js
-│       └── loading.js
+│   │   ├── common.css          # Shared tokens, header, buttons, cards
+│   │   ├── landing.css         # Home / landing page
+│   │   ├── test.css            # Assessment page
+│   │   └── info.css            # Information & resources
+│   ├── js/
+│   │   ├── test.js             # Assessment questionnaire & findings
+│   │   └── loading.js
+│   └── assets/
+│       └── dass-icon.ico
 └── templates/
-    ├── index.html              # DASS-21 questionnaire & results
+    ├── index.html              # Landing page
+    ├── test.html               # DASS-21 questionnaire & results
     └── info.html               # Information & resources
 ```
 
@@ -100,7 +104,8 @@ dass21-amplified/
 
 | Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/` | DASS-21 questionnaire page |
+| `GET` | `/` | Landing page |
+| `GET` | `/test` | DASS-21 questionnaire and findings |
 | `GET` | `/info` | Information and resources page |
 | `POST` | `/computeDASS` | Compute scores and predictions from questionnaire answers |
 
