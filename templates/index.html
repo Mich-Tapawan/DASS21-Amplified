@@ -72,21 +72,32 @@
     <main>
       <!-- Hero -->
       <section class="landing-hero" aria-labelledby="landing-headline">
-        <div class="landing-hero__inner">
-          <p class="landing-hero__eyebrow">Psychometrics evolved</p>
-          <h1 id="landing-headline" class="landing-hero__headline">
+        <div
+          class="landing-hero__inner"
+          data-animate-stagger
+          data-animate
+          data-animate-delay="0"
+        >
+          <p class="landing-hero__eyebrow" data-animate-child>
+            Psychometrics evolved
+          </p>
+          <h1
+            id="landing-headline"
+            class="landing-hero__headline"
+            data-animate-child
+          >
             Screen mood, anxiety, and stress—then see what the data may suggest
             next
           </h1>
-          <p class="landing-hero__lede">
+          <p class="landing-hero__lede" data-animate-child>
             A guided DASS-21 questionnaire with severity bands and educational
             predictive insights, built for learning and research—not diagnosis.
           </p>
-          <div class="landing-hero__ctas">
+          <div class="landing-hero__ctas" data-animate-child>
             <a class="btn btn--primary btn--pill" href="/test">Start assessment</a>
             <a class="btn btn--outline btn--pill" href="/info">Learn more</a>
           </div>
-          <figure class="landing-hero__figure">
+          <figure class="landing-hero__figure" data-animate-child>
             <img
               src="/static/assets/hero_img.png"
               alt="Illustration of a person reviewing an assessment on a tablet"
@@ -100,7 +111,7 @@
 
       <div class="landing-content">
         <!-- What it is -->
-        <section class="landing-section" aria-labelledby="what-it-is">
+        <section class="landing-section" aria-labelledby="what-it-is" data-animate>
           <h2 id="what-it-is" class="landing-section__title">What it is</h2>
           <p class="landing-section__lede">
             The Depression, Anxiety and Stress Scale (DASS-21) is a widely used
@@ -124,8 +135,8 @@
               >original DASS-21 questionnaire (PDF)</a
             >.
           </p>
-          <div class="landing-feature-grid">
-            <article class="landing-feature-card">
+          <div class="landing-feature-grid" data-animate-stagger data-animate>
+            <article class="landing-feature-card" data-animate-child>
               <div class="landing-feature-card__icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +158,7 @@
                 aligned to the full DASS-42 scale.
               </p>
             </article>
-            <article class="landing-feature-card">
+            <article class="landing-feature-card" data-animate-child>
               <div class="landing-feature-card__icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +184,7 @@
         </section>
 
         <!-- What Amplified adds -->
-        <section class="landing-section" aria-labelledby="amplified">
+        <section class="landing-section" aria-labelledby="amplified" data-animate>
           <h2 id="amplified" class="landing-section__title">
             What “Amplified” adds
           </h2>
@@ -183,7 +194,7 @@
             projected future depression score—statistical projections for
             education and research, not a medical opinion.
           </p>
-          <div class="landing-amplified">
+          <div class="landing-amplified" data-animate="scale" data-animate-delay="80">
             <figure class="landing-amplified__media">
               <img
                 src="/static/assets/neurons.png"
@@ -216,10 +227,10 @@
         </section>
 
         <!-- How it works -->
-        <section class="landing-section" aria-labelledby="how-it-works">
+        <section class="landing-section" aria-labelledby="how-it-works" data-animate>
           <h2 id="how-it-works" class="landing-section__title">How it works</h2>
-          <ol class="landing-steps">
-            <li>
+          <ol class="landing-steps" data-animate-stagger data-animate>
+            <li data-animate-child>
               <span class="landing-steps__icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -243,7 +254,7 @@
                 </p>
               </div>
             </li>
-            <li>
+            <li data-animate-child>
               <span class="landing-steps__icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -267,7 +278,7 @@
                 </p>
               </div>
             </li>
-            <li>
+            <li data-animate-child>
               <span class="landing-steps__icon" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -298,11 +309,12 @@
         <section
           class="landing-section landing-research"
           aria-labelledby="research"
+          data-animate
         >
           <h2 id="research" class="landing-section__title">
             Capstone research project
           </h2>
-          <div class="landing-research__card">
+          <div class="landing-research__card" data-animate="scale" data-animate-delay="60">
             <div class="landing-research__icon" aria-hidden="true">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -339,7 +351,11 @@
         </section>
 
         <!-- Disclaimer -->
-        <aside class="landing-disclaimer" aria-labelledby="disclaimer">
+        <aside
+          class="landing-disclaimer"
+          aria-labelledby="disclaimer"
+          data-animate
+        >
           <div class="landing-disclaimer__header">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -369,7 +385,11 @@
         </aside>
 
         <!-- Final CTA -->
-        <section class="landing-cta-panel" aria-labelledby="final-cta">
+        <section
+          class="landing-cta-panel"
+          aria-labelledby="final-cta"
+          data-animate="scale"
+        >
           <h2 id="final-cta">Ready to start?</h2>
           <p>
             Take the assessment in a few minutes, or browse scoring reference
@@ -380,7 +400,7 @@
       </div>
     </main>
 
-    <footer class="landing-footer">
+    <footer class="landing-footer" data-animate="fade">
       <p class="landing-footer__brand">DASS21 — Amplified</p>
       <p class="landing-footer__copy">
         An educational research tool that extends DASS-21 with predictive
@@ -392,5 +412,6 @@
         <a href="/info#disclaimer">Disclaimer</a>
       </nav>
     </footer>
+    <script src="/static/js/animate.js"></script>
   </body>
 </html>

@@ -75,24 +75,24 @@
     </header>
 
     <main class="page-wrap info-page">
-      <header class="info-hero">
+      <header class="info-hero" data-animate>
         <h1 class="info-hero__title">Information &amp; resources</h1>
         <p class="info-hero__lede">
           How to read your results, what the scores mean, and where to find
           support if you need help.
         </p>
-        <nav class="info-toc" aria-label="On this page">
-          <a href="#disclaimer">Disclaimer</a>
-          <a href="#scores">Scores &amp; bands</a>
-          <a href="#severity">Severity explained</a>
-          <a href="#predictions">ML predictions</a>
-          <a href="#self-care">Self-care</a>
-          <a href="#crisis">Crisis support</a>
+        <nav class="info-toc" aria-label="On this page" data-animate-stagger data-animate data-animate-delay="100">
+          <a href="#disclaimer" data-animate-child>Disclaimer</a>
+          <a href="#scores" data-animate-child>Scores &amp; bands</a>
+          <a href="#severity" data-animate-child>Severity explained</a>
+          <a href="#predictions" data-animate-child>ML predictions</a>
+          <a href="#self-care" data-animate-child>Self-care</a>
+          <a href="#crisis" data-animate-child>Crisis support</a>
         </nav>
       </header>
 
       <!-- Disclaimer -->
-      <aside id="disclaimer" class="info-callout" aria-labelledby="disclaimer-title">
+      <aside id="disclaimer" class="info-callout" aria-labelledby="disclaimer-title" data-animate>
         <div class="info-callout__icon" aria-hidden="true">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@
       </aside>
 
       <!-- Scoring guide -->
-      <section id="scores" class="info-card" aria-labelledby="scores-title">
+      <section id="scores" class="info-card" aria-labelledby="scores-title" data-animate>
         <div class="info-card__header">
           <span class="info-card__header-icon" aria-hidden="true">
             <svg
@@ -224,7 +224,7 @@
       </section>
 
       <!-- Severity tiers -->
-      <section id="severity" class="info-block" aria-labelledby="severity-title">
+      <section id="severity" class="info-block" aria-labelledby="severity-title" data-animate>
         <h2 id="severity-title" class="info-block__title">
           Understanding the tiers
         </h2>
@@ -232,36 +232,36 @@
           These descriptions are general guidance. Individual experiences vary; a
           professional can help interpret results in context.
         </p>
-        <ul class="tier-list">
-          <li class="tier-card">
+        <ul class="tier-list" data-animate-stagger data-animate>
+          <li class="tier-card" data-animate-child>
             <span class="sev-pill sev-pill--normal">Normal</span>
             <p>
               Scores are within a typical range for the general population on
               that subscale.
             </p>
           </li>
-          <li class="tier-card">
+          <li class="tier-card" data-animate-child>
             <span class="sev-pill sev-pill--mild">Mild</span>
             <p>
               Some symptoms may be present but are often manageable with
               self-care and lifestyle support.
             </p>
           </li>
-          <li class="tier-card">
+          <li class="tier-card" data-animate-child>
             <span class="sev-pill sev-pill--moderate">Moderate</span>
             <p>
               Symptoms are more noticeable and may affect daily life; consider
               speaking with a counselor or GP.
             </p>
           </li>
-          <li class="tier-card">
+          <li class="tier-card" data-animate-child>
             <span class="sev-pill sev-pill--severe">Severe</span>
             <p>
               Symptoms are likely interfering with functioning; professional
               support is recommended.
             </p>
           </li>
-          <li class="tier-card">
+          <li class="tier-card" data-animate-child>
             <span class="sev-pill sev-pill--extreme">Extremely Severe</span>
             <p>
               Symptoms are intense and persistent; seek prompt help from a
@@ -276,6 +276,7 @@
         id="predictions"
         class="info-ml"
         aria-labelledby="predictions-title"
+        data-animate
       >
         <h2 id="predictions-title">ML methodology</h2>
         <p>
@@ -361,12 +362,12 @@
       </section>
 
       <!-- Self-care -->
-      <section id="self-care" class="info-block" aria-labelledby="self-care-title">
+      <section id="self-care" class="info-block" aria-labelledby="self-care-title" data-animate>
         <h2 id="self-care-title" class="info-block__title">
           General wellness tips
         </h2>
-        <ul class="wellness-grid">
-          <li>
+        <ul class="wellness-grid" data-animate-stagger data-animate>
+          <li data-animate-child>
             <span class="wellness-grid__check" aria-hidden="true">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -383,7 +384,7 @@
             Maintain regular sleep, meals, and gentle physical activity when
             possible.
           </li>
-          <li>
+          <li data-animate-child>
             <span class="wellness-grid__check" aria-hidden="true">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -400,7 +401,7 @@
             Stay connected with people you trust; isolation can worsen low mood
             and anxiety.
           </li>
-          <li>
+          <li data-animate-child>
             <span class="wellness-grid__check" aria-hidden="true">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -416,7 +417,7 @@
             </span>
             Use brief grounding or breathing exercises when anxiety spikes.
           </li>
-          <li>
+          <li data-animate-child>
             <span class="wellness-grid__check" aria-hidden="true">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -433,7 +434,7 @@
             If scores are mild or above, or symptoms persist for two weeks or
             more, consider a counselor, GP, or licensed professional.
           </li>
-          <li>
+          <li data-animate-child>
             <span class="wellness-grid__check" aria-hidden="true">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -449,7 +450,7 @@
             </span>
             Limit alcohol and stimulants if they worsen how you feel.
           </li>
-          <li>
+          <li data-animate-child>
             <span class="wellness-grid__check" aria-hidden="true">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -470,7 +471,7 @@
       </section>
 
       <!-- Crisis -->
-      <section id="crisis" class="info-block" aria-labelledby="crisis-title">
+      <section id="crisis" class="info-block" aria-labelledby="crisis-title" data-animate>
         <h2 id="crisis-title" class="info-block__title">
           Crisis and mental health resources
         </h2>
@@ -503,8 +504,8 @@
           </div>
         </div>
 
-        <div class="crisis-grid">
-          <article class="crisis-tile">
+        <div class="crisis-grid" data-animate-stagger data-animate>
+          <article class="crisis-tile" data-animate-child>
             <div class="crisis-tile__body">
               <p class="crisis-tile__label">Philippines · NCMH</p>
               <p class="crisis-tile__value">1553</p>
@@ -530,7 +531,7 @@
             </span>
           </article>
 
-          <article class="crisis-tile">
+          <article class="crisis-tile" data-animate-child>
             <div class="crisis-tile__body">
               <p class="crisis-tile__label">Hopeline Philippines</p>
               <p class="crisis-tile__value">2919</p>
@@ -555,7 +556,7 @@
             </span>
           </article>
 
-          <article class="crisis-tile">
+          <article class="crisis-tile" data-animate-child>
             <div class="crisis-tile__body">
               <p class="crisis-tile__label">In Touch Crisis Lines</p>
               <p class="crisis-tile__value">(02) 8893-7603</p>
@@ -580,7 +581,7 @@
             </span>
           </article>
 
-          <article class="crisis-tile">
+          <article class="crisis-tile" data-animate-child>
             <div class="crisis-tile__body">
               <p class="crisis-tile__label">988 Lifeline (US)</p>
               <p class="crisis-tile__value">
@@ -613,7 +614,7 @@
             </span>
           </article>
 
-          <article class="crisis-tile crisis-tile--wide">
+          <article class="crisis-tile crisis-tile--wide" data-animate-child>
             <div class="crisis-tile__body">
               <p class="crisis-tile__label">Crisis Text Line</p>
               <p class="crisis-tile__value">Text HOME to 741741</p>
@@ -653,7 +654,7 @@
       </section>
     </main>
 
-    <footer class="landing-footer info-footer">
+    <footer class="landing-footer info-footer" data-animate="fade">
       <p class="landing-footer__brand">DASS21 — Amplified</p>
       <p class="landing-footer__copy">
         An educational research tool that extends DASS-21 with predictive
@@ -665,5 +666,6 @@
         <a href="#disclaimer">Disclaimer</a>
       </nav>
     </footer>
+    <script src="/static/js/animate.js"></script>
   </body>
 </html>
