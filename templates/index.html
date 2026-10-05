@@ -9,15 +9,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap"
       rel="stylesheet"
     />
   </head>
   <body class="landing-body">
+    <!-- Icons: Heroicons v2.2.0 (MIT) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-sprite" aria-hidden="true">
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" /></symbol>
+      <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" /></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></symbol>
+      <symbol id="i-clipboard" viewBox="0 0 24 24"><path d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" /></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></symbol>
+      <symbol id="i-trend" viewBox="0 0 24 24"><path d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" /></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24"><path d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></symbol>
+      <symbol id="i-warning" viewBox="0 0 24 24"><path d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" /></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84c-.908.217-1.805.494-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" /></symbol>
+      <symbol id="i-device" viewBox="0 0 24 24"><path d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></symbol>
+    </svg>
+
     <header class="app-header landing-header">
-      <p class="app-header__title">DASS21 — Amplified</p>
+      <a class="landing-brand" href="/" aria-label="DASS21 — Amplified home">
+        <span class="landing-brand__mark" aria-hidden="true">
+          <svg><use href="#i-sparkles" /></svg>
+        </span>
+        <span class="app-header__title">DASS21 — Amplified</span>
+      </a>
       <nav class="nav-actions" aria-label="Main navigation">
-        <!-- Icons: Heroicons v2.2.0 (MIT) -->
         <a href="/" title="Home" aria-label="Home" aria-current="page">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -71,151 +95,219 @@
 
     <main>
       <!-- Hero -->
-      <section class="landing-hero" aria-labelledby="landing-headline">
-        <div
-          class="landing-hero__inner"
-          data-animate-stagger
-          data-animate
-          data-animate-delay="0"
-        >
-          <p class="landing-hero__eyebrow" data-animate-child>
-            Psychometrics evolved
-          </p>
-          <h1
-            id="landing-headline"
-            class="landing-hero__headline"
-            data-animate-child
-          >
-            Screen mood, anxiety, and stress—then see what the data may suggest
-            next
-          </h1>
-          <p class="landing-hero__lede" data-animate-child>
-            A guided DASS-21 questionnaire with severity bands and educational
-            predictive insights, built for learning and research—not diagnosis.
-          </p>
-          <div class="landing-hero__ctas" data-animate-child>
-            <a class="btn btn--primary btn--pill" href="/test">Start assessment</a>
-            <a class="btn btn--outline btn--pill" href="/info">Learn more</a>
+      <section class="lp-hero" aria-labelledby="landing-headline">
+        <div class="lp-container lp-hero__grid">
+          <div class="lp-hero__copy" data-animate-stagger data-animate="fade">
+            <p class="lp-pill" data-animate-child>
+              <span class="lp-pill__dot" aria-hidden="true"></span>
+              Psychometrics evolved
+            </p>
+            <h1 id="landing-headline" class="lp-hero__headline" data-animate-child>
+              Screen <span class="lp-gradient-text">mood, anxiety, and stress</span>—then
+              see what the data may suggest next
+            </h1>
+            <p class="lp-hero__lede" data-animate-child>
+              A guided DASS-21 questionnaire with severity bands and educational
+              predictive insights, built for learning and research—not diagnosis.
+            </p>
+            <div class="lp-hero__ctas" data-animate-child>
+              <a class="btn btn--primary btn--pill btn--lg" href="/test">
+                Start assessment
+                <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+              <a class="btn btn--outline btn--pill btn--lg" href="/info">Learn more</a>
+            </div>
+            <dl class="lp-hero__stats" data-animate-child>
+              <div>
+                <dt>21</dt>
+                <dd>Questionnaire items</dd>
+              </div>
+              <div>
+                <dt>3</dt>
+                <dd>Subscales scored</dd>
+              </div>
+              <div>
+                <dt>2</dt>
+                <dd>Predictive models</dd>
+              </div>
+            </dl>
           </div>
-          <figure class="landing-hero__figure" data-animate-child>
-            <img
-              src="/static/assets/hero_img.png"
-              alt="Illustration of a person reviewing an assessment on a tablet"
-              width="960"
-              height="540"
-              decoding="async"
-            />
-          </figure>
+
+          <div class="lp-hero__visual" data-animate="scale" data-animate-delay="120">
+            <div class="lp-hero__blob" aria-hidden="true"></div>
+            <figure class="lp-hero__photo lp-hero__photo--main">
+              <img
+                src="/static/assets/stock/notes.jpg"
+                alt="Person writing notes on paper at a wooden desk"
+                width="1024"
+                height="682"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </figure>
+            <figure class="lp-hero__photo lp-hero__photo--inset">
+              <img
+                src="/static/assets/stock/meditation.jpg"
+                alt="Person meditating on a wooden deck at sunrise"
+                width="881"
+                height="1024"
+                decoding="async"
+              />
+            </figure>
+
+            <div class="lp-float lp-float--top" aria-hidden="true">
+              <span class="lp-float__icon"><svg><use href="#i-chart" /></svg></span>
+              <div>
+                <p class="lp-float__label">Severity bands</p>
+                <p class="lp-float__dots">
+                  <span style="--c: var(--sev-normal)"></span>
+                  <span style="--c: var(--sev-mild)"></span>
+                  <span style="--c: var(--sev-moderate)"></span>
+                  <span style="--c: var(--sev-severe)"></span>
+                  <span style="--c: var(--sev-extreme)"></span>
+                </p>
+              </div>
+            </div>
+            <div class="lp-float lp-float--bottom" aria-hidden="true">
+              <span class="lp-float__icon lp-float__icon--soft"><svg><use href="#i-shield" /></svg></span>
+              <div>
+                <p class="lp-float__label">Educational use</p>
+                <p class="lp-float__value">Not a diagnosis</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <div class="landing-content">
-        <!-- What it is -->
-        <section class="landing-section" aria-labelledby="what-it-is" data-animate>
-          <h2 id="what-it-is" class="landing-section__title">What it is</h2>
-          <p class="landing-section__lede">
-            The Depression, Anxiety and Stress Scale (DASS-21) is a widely used
-            21-item screening tool. You answer how often each statement applied
-            to you over the past week. Answers are grouped into three subscales—
-            Depression, Anxiety, and Stress—and converted into scores with
-            established severity bands. Learn more in this
-            <a
-              class="landing-link"
-              href="https://www.verywellmind.com/dass-21-depression-anxiety-scale-8697715"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Verywell Mind overview of DASS-21</a
-            >
-            or the
-            <a
-              class="landing-link"
-              href="https://maic.qld.gov.au/wp-content/uploads/2016/07/DASS-21.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              >original DASS-21 questionnaire (PDF)</a
-            >.
-          </p>
-          <div class="landing-feature-grid" data-animate-stagger data-animate>
-            <article class="landing-feature-card" data-animate-child>
-              <div class="landing-feature-card__icon" aria-hidden="true">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
-                  />
-                </svg>
+      <!-- Subscales -->
+      <section class="lp-section lp-section--tight" aria-labelledby="subscales">
+        <div class="lp-container">
+          <h2 id="subscales" class="visually-hidden">The three DASS-21 subscales</h2>
+          <div class="lp-subscales" data-animate-stagger data-animate="fade">
+            <article class="lp-subscale" data-animate-child>
+              <span class="lp-subscale__icon"><svg aria-hidden="true"><use href="#i-cloud" /></svg></span>
+              <div>
+                <h3>Depression <span>7 items</span></h3>
+                <p>Low mood, hopelessness, lack of interest, and low energy.</p>
               </div>
-              <h3>Validated metrics</h3>
-              <p>
-                Uses the established 21-item DASS instrument with severity bands
-                aligned to the full DASS-42 scale.
-              </p>
             </article>
-            <article class="landing-feature-card" data-animate-child>
-              <div class="landing-feature-card__icon" aria-hidden="true">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
-                  />
-                </svg>
+            <article class="lp-subscale" data-animate-child>
+              <span class="lp-subscale__icon"><svg aria-hidden="true"><use href="#i-heart" /></svg></span>
+              <div>
+                <h3>Anxiety <span>7 items</span></h3>
+                <p>Physical arousal, situational anxiety, and feelings of panic.</p>
               </div>
-              <h3>Guided digital screening</h3>
-              <p>
-                Complete Depression, Anxiety, and Stress sections at your own
-                pace on desktop or mobile.
-              </p>
+            </article>
+            <article class="lp-subscale" data-animate-child>
+              <span class="lp-subscale__icon"><svg aria-hidden="true"><use href="#i-bolt" /></svg></span>
+              <div>
+                <h3>Stress <span>7 items</span></h3>
+                <p>Difficulty relaxing, nervous tension, irritability, and agitation.</p>
+              </div>
             </article>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- What Amplified adds -->
-        <section class="landing-section" aria-labelledby="amplified" data-animate>
-          <h2 id="amplified" class="landing-section__title">
-            What “Amplified” adds
-          </h2>
-          <p class="landing-section__lede">
-            Beyond standard scoring, this app applies machine learning models
-            trained on survey data to estimate likelihood, magnitude, and a
-            projected future depression score—statistical projections for
-            education and research, not a medical opinion.
-          </p>
-          <div class="landing-amplified" data-animate="scale" data-animate-delay="80">
-            <figure class="landing-amplified__media">
+      <!-- What it is -->
+      <section class="lp-section" aria-labelledby="what-it-is">
+        <div class="lp-container lp-split">
+          <div class="lp-split__media" data-animate="scale">
+            <figure class="lp-photo-card">
               <img
-                src="/static/assets/neurons.png"
-                alt="Abstract teal neural network visualization"
-                width="960"
-                height="420"
+                src="/static/assets/stock/friends-talk.jpg"
+                alt="Group of young adults talking and smiling around a table"
+                width="1024"
+                height="682"
                 decoding="async"
                 loading="lazy"
               />
             </figure>
-            <div class="landing-amplified__grid">
-              <article>
-                <p class="landing-amplified__label">Analysis</p>
+            <div class="lp-photo-badge">
+              <span class="lp-photo-badge__icon"><svg aria-hidden="true"><use href="#i-clipboard" /></svg></span>
+              <div>
+                <p class="lp-photo-badge__title">Past-week recall</p>
+                <p class="lp-photo-badge__text">Rated 0–3, Never to Very Often</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lp-split__body" data-animate data-animate-delay="80">
+            <p class="lp-eyebrow">What it is</p>
+            <h2 id="what-it-is" class="lp-title">A validated, 21-item screening scale</h2>
+            <p class="lp-lede">
+              The Depression, Anxiety and Stress Scale (DASS-21) is a widely used
+              21-item screening tool. You answer how often each statement applied
+              to you over the past week. Answers are grouped into three subscales—
+              Depression, Anxiety, and Stress—and converted into scores with
+              established severity bands. Learn more in this
+              <a
+                class="landing-link"
+                href="https://www.verywellmind.com/dass-21-depression-anxiety-scale-8697715"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Verywell Mind overview of DASS-21</a
+              >
+              or the
+              <a
+                class="landing-link"
+                href="https://maic.qld.gov.au/wp-content/uploads/2016/07/DASS-21.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >original DASS-21 questionnaire (PDF)</a
+              >.
+            </p>
+            <ul class="lp-feature-list">
+              <li>
+                <span class="lp-feature-list__icon"><svg aria-hidden="true"><use href="#i-doc" /></svg></span>
+                <div>
+                  <h3>Validated metrics</h3>
+                  <p>
+                    Uses the established 21-item DASS instrument with severity
+                    bands aligned to the full DASS-42 scale.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span class="lp-feature-list__icon"><svg aria-hidden="true"><use href="#i-device" /></svg></span>
+                <div>
+                  <h3>Guided digital screening</h3>
+                  <p>
+                    Complete Depression, Anxiety, and Stress sections at your own
+                    pace on desktop or mobile.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- What Amplified adds -->
+      <section class="lp-section lp-dark" aria-labelledby="amplified">
+        <div class="lp-container lp-split lp-split--reverse">
+          <div class="lp-split__body" data-animate>
+            <p class="lp-eyebrow lp-eyebrow--light">Machine learning layer</p>
+            <h2 id="amplified" class="lp-title">What “Amplified” adds</h2>
+            <p class="lp-lede">
+              Beyond standard scoring, this app applies machine learning models
+              trained on survey data to estimate likelihood, magnitude, and a
+              projected future depression score—statistical projections for
+              education and research, not a medical opinion.
+            </p>
+            <div class="lp-glass-grid" data-animate-stagger data-animate="fade">
+              <article class="lp-glass" data-animate-child>
+                <span class="lp-glass__icon"><svg aria-hidden="true"><use href="#i-chart" /></svg></span>
+                <p class="lp-glass__label">Analysis</p>
                 <h3>Magnitude of deviation</h3>
                 <p>
                   Estimates how far a depression score may sit above or below the
                   mild cut-off, given anxiety and stress scores.
                 </p>
               </article>
-              <article>
-                <p class="landing-amplified__label">Prediction</p>
+              <article class="lp-glass" data-animate-child>
+                <span class="lp-glass__icon"><svg aria-hidden="true"><use href="#i-trend" /></svg></span>
+                <p class="lp-glass__label">Prediction</p>
                 <h3>Escalation likelihood</h3>
                 <p>
                   Models the likelihood of surpassing mild depression and a
@@ -224,193 +316,221 @@
               </article>
             </div>
           </div>
-        </section>
 
-        <!-- How it works -->
-        <section class="landing-section" aria-labelledby="how-it-works" data-animate>
-          <h2 id="how-it-works" class="landing-section__title">How it works</h2>
-          <ol class="landing-steps" data-animate-stagger data-animate>
-            <li data-animate-child>
-              <span class="landing-steps__icon" aria-hidden="true">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"
-                  />
-                </svg>
-              </span>
-              <div>
-                <h3>Answer 21 items</h3>
-                <p>
-                  Move through Depression, Anxiety, and Stress sections at your
-                  own pace.
-                </p>
+          <div class="lp-split__media" data-animate="scale" data-animate-delay="100">
+            <figure class="lp-photo-card lp-photo-card--dark">
+              <img
+                src="/static/assets/stock/analytics.jpg"
+                alt="Laptop screen showing charts and data analytics"
+                width="1024"
+                height="682"
+                decoding="async"
+                loading="lazy"
+              />
+            </figure>
+            <div class="lp-chip lp-chip--a">
+              <svg aria-hidden="true"><use href="#i-sparkles" /></svg>
+              Logistic regression
+            </div>
+            <div class="lp-chip lp-chip--b">
+              <svg aria-hidden="true"><use href="#i-chart" /></svg>
+              Linear regression
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="lp-section" aria-labelledby="how-it-works">
+        <div class="lp-container">
+          <header class="lp-section-head" data-animate>
+            <p class="lp-eyebrow">How it works</p>
+            <h2 id="how-it-works" class="lp-title">From answers to insights in three steps</h2>
+          </header>
+          <ol class="lp-steps" data-animate-stagger data-animate="fade">
+            <li class="lp-step" data-animate-child>
+              <div class="lp-step__top">
+                <span class="lp-step__icon"><svg aria-hidden="true"><use href="#i-clipboard" /></svg></span>
+                <span class="lp-step__num" aria-hidden="true">01</span>
               </div>
+              <h3>Answer 21 items</h3>
+              <p>
+                Move through Depression, Anxiety, and Stress sections at your own
+                pace.
+              </p>
             </li>
-            <li data-animate-child>
-              <span class="landing-steps__icon" aria-hidden="true">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
-                  />
-                </svg>
-              </span>
-              <div>
-                <h3>Submit for scoring</h3>
-                <p>
-                  Subscale totals are multiplied by 2 to align with the full
-                  DASS-42 scale, then matched to severity bands.
-                </p>
+            <li class="lp-step" data-animate-child>
+              <div class="lp-step__top">
+                <span class="lp-step__icon"><svg aria-hidden="true"><use href="#i-chart" /></svg></span>
+                <span class="lp-step__num" aria-hidden="true">02</span>
               </div>
+              <h3>Submit for scoring</h3>
+              <p>
+                Subscale totals are multiplied by 2 to align with the full DASS-42
+                scale, then matched to severity bands.
+              </p>
             </li>
-            <li data-animate-child>
-              <span class="landing-steps__icon" aria-hidden="true">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
-                  />
-                </svg>
-              </span>
-              <div>
-                <h3>Read scores &amp; interpretation</h3>
-                <p>
-                  Review findings, open plain-language interpretation, and visit
-                  Info for cut-offs and support resources.
-                </p>
+            <li class="lp-step" data-animate-child>
+              <div class="lp-step__top">
+                <span class="lp-step__icon"><svg aria-hidden="true"><use href="#i-info" /></svg></span>
+                <span class="lp-step__num" aria-hidden="true">03</span>
               </div>
+              <h3>Read scores &amp; interpretation</h3>
+              <p>
+                Review findings, open plain-language interpretation, and visit Info
+                for cut-offs and support resources.
+              </p>
             </li>
           </ol>
-        </section>
+        </div>
+      </section>
 
-        <!-- Capstone / research -->
-        <section
-          class="landing-section landing-research"
-          aria-labelledby="research"
-          data-animate
-        >
-          <h2 id="research" class="landing-section__title">
-            Capstone research project
-          </h2>
-          <div class="landing-research__card" data-animate="scale" data-animate-delay="60">
-            <div class="landing-research__icon" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84c-.908.217-1.805.494-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
-                />
-              </svg>
-            </div>
-            <div class="landing-research__body">
-              <p class="landing-research__eyebrow">Academic research</p>
-              <p>
+      <!-- Capstone / research -->
+      <section class="lp-section lp-section--soft" aria-labelledby="research">
+        <div class="lp-container">
+          <div class="lp-research" data-animate="scale">
+            <figure class="lp-research__media">
+              <img
+                src="/static/assets/stock/students.jpg"
+                alt="Students collaborating with laptops around a table"
+                width="1024"
+                height="682"
+                decoding="async"
+                loading="lazy"
+              />
+              <span class="lp-research__tag">
+                <svg aria-hidden="true"><use href="#i-cap" /></svg>
+                Capstone project
+              </span>
+            </figure>
+            <div class="lp-research__body">
+              <p class="lp-eyebrow">Academic research</p>
+              <h2 id="research" class="lp-title">Capstone research project</h2>
+              <p class="lp-lede">
                 DASS21 — Amplified was developed as a
                 <strong>capstone research project</strong>. The manuscript
                 documents the problem background, DASS-21 scoring approach,
-                predictive modeling methods, and educational framing of this
-                web application.
+                predictive modeling methods, and educational framing of this web
+                application.
               </p>
+              <ul class="lp-checks">
+                <li><svg aria-hidden="true"><use href="#i-check" /></svg>Problem background</li>
+                <li><svg aria-hidden="true"><use href="#i-check" /></svg>DASS-21 scoring approach</li>
+                <li><svg aria-hidden="true"><use href="#i-check" /></svg>Predictive modeling methods</li>
+                <li><svg aria-hidden="true"><use href="#i-check" /></svg>Educational framing</li>
+              </ul>
               <a
-                class="btn btn--outline btn--pill landing-research__cta"
+                class="btn btn--primary btn--pill btn--lg"
                 href="https://drive.google.com/file/d/13PY06vwiHPH1EmCPBWGdG1zAdgJUNrQC/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                >Read the capstone paper</a
               >
+                Read the capstone paper
+                <svg class="btn__icon" aria-hidden="true"><use href="#i-external" /></svg>
+              </a>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- Disclaimer -->
-        <aside
-          class="landing-disclaimer"
-          aria-labelledby="disclaimer"
-          data-animate
-        >
-          <div class="landing-disclaimer__header">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
-              />
-            </svg>
-            <h2 id="disclaimer">Educational disclaimer</h2>
+      <!-- Disclaimer + final CTA -->
+      <section class="lp-section" aria-labelledby="final-cta">
+        <div class="lp-container lp-stack">
+          <aside class="lp-disclaimer" aria-labelledby="disclaimer" data-animate>
+            <span class="lp-disclaimer__icon"><svg aria-hidden="true"><use href="#i-warning" /></svg></span>
+            <div>
+              <h2 id="disclaimer">Educational disclaimer</h2>
+              <p>
+                This application is for
+                <strong>educational and research purposes only</strong>. It is not
+                a substitute for professional psychological diagnosis, treatment,
+                or clinical assessment. Always consult a qualified mental health
+                professional for personal advice. If you are in immediate
+                distress, contact emergency services or a crisis hotline—see
+                <a href="/info#crisis">Info resources</a>.
+              </p>
+            </div>
+          </aside>
+
+          <div class="lp-cta" data-animate="scale">
+            <div class="lp-cta__content">
+              <h2 id="final-cta">Ready to start?</h2>
+              <p>
+                Take the assessment in a few minutes, or browse scoring reference
+                and crisis resources first.
+              </p>
+              <div class="lp-cta__actions">
+                <a class="btn btn--on-dark btn--pill btn--lg" href="/test">
+                  Start assessment
+                  <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+                </a>
+                <a class="btn btn--ghost-dark btn--pill btn--lg" href="/info">
+                  Information &amp; resources
+                </a>
+              </div>
+            </div>
           </div>
-          <p>
-            This application is for
-            <strong>educational and research purposes only</strong>. It is not a
-            substitute for professional psychological diagnosis, treatment, or
-            clinical assessment. Always consult a qualified mental health
-            professional for personal advice. If you are in immediate distress,
-            contact emergency services or a crisis hotline—see
-            <a href="/info#crisis">Info resources</a>.
-          </p>
-        </aside>
-
-        <!-- Final CTA -->
-        <section
-          class="landing-cta-panel"
-          aria-labelledby="final-cta"
-          data-animate="scale"
-        >
-          <h2 id="final-cta">Ready to start?</h2>
-          <p>
-            Take the assessment in a few minutes, or browse scoring reference
-            and crisis resources first.
-          </p>
-          <a class="btn btn--on-dark btn--pill" href="/test">Start assessment</a>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="landing-footer" data-animate="fade">
-      <p class="landing-footer__brand">DASS21 — Amplified</p>
-      <p class="landing-footer__copy">
-        An educational research tool that extends DASS-21 with predictive
-        analytics. Not a substitute for professional clinical advice.
-      </p>
-      <nav class="landing-footer__links" aria-label="Footer">
-        <a href="/test">Assessment</a>
-        <a href="/info">Information &amp; resources</a>
-        <a href="/info#disclaimer">Disclaimer</a>
-      </nav>
+    <footer class="lp-footer">
+      <div class="lp-container lp-footer__grid">
+        <div class="lp-footer__about">
+          <p class="lp-footer__brand">
+            <span class="landing-brand__mark" aria-hidden="true">
+              <svg><use href="#i-sparkles" /></svg>
+            </span>
+            DASS21 — Amplified
+          </p>
+          <p>
+            An educational research tool that extends DASS-21 with predictive
+            analytics. Not a substitute for professional clinical advice.
+          </p>
+        </div>
+        <nav aria-label="Footer">
+          <p class="lp-footer__heading">Explore</p>
+          <ul>
+            <li><a href="/test">Assessment</a></li>
+            <li><a href="/info">Information &amp; resources</a></li>
+            <li><a href="/info#crisis">Crisis resources</a></li>
+            <li><a href="/info#disclaimer">Disclaimer</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="References">
+          <p class="lp-footer__heading">References</p>
+          <ul>
+            <li>
+              <a
+                href="https://www.verywellmind.com/dass-21-depression-anxiety-scale-8697715"
+                target="_blank"
+                rel="noopener noreferrer"
+                >DASS-21 overview</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://maic.qld.gov.au/wp-content/uploads/2016/07/DASS-21.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >DASS-21 questionnaire (PDF)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://drive.google.com/file/d/13PY06vwiHPH1EmCPBWGdG1zAdgJUNrQC/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Capstone paper</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="lp-container lp-footer__bottom">
+        <p>For educational and research purposes only.</p>
+        <p>Photos from <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a></p>
+      </div>
     </footer>
     <script src="/static/js/animate.js"></script>
   </body>
