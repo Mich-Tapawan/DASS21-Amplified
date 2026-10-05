@@ -9,15 +9,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="info-body">
+  <body class="landing-body info-body">
+    <!-- Icons: Heroicons v2.2.0 (MIT) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon-sprite" aria-hidden="true">
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" /></symbol>
+      <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z" /></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0 4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0-5.571 3-5.571-3" /></symbol>
+      <symbol id="i-pie" viewBox="0 0 24 24"><path d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" /><path d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" /></symbol>
+      <symbol id="i-trend" viewBox="0 0 24 24"><path d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" /></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.059-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" /></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><path d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></symbol>
+      <symbol id="i-no" viewBox="0 0 24 24"><path d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" /></symbol>
+      <symbol id="i-pencil" viewBox="0 0 24 24"><path d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" /></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" /></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></symbol>
+      <symbol id="i-clipboard" viewBox="0 0 24 24"><path d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" /></symbol>
+    </svg>
+
     <header class="app-header landing-header">
-      <p class="app-header__title">DASS21 — Amplified</p>
+      <a class="landing-brand" href="/" aria-label="DASS21 — Amplified home">
+        <span class="landing-brand__mark" aria-hidden="true">
+          <svg><use href="#i-sparkles" /></svg>
+        </span>
+        <span class="app-header__title">DASS21 — Amplified</span>
+      </a>
       <nav class="nav-actions" aria-label="Main navigation">
-        <!-- Icons: Heroicons v2.2.0 (MIT) -->
         <a href="/" title="Home" aria-label="Home">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,597 +102,522 @@
       </nav>
     </header>
 
-    <main class="page-wrap info-page">
-      <header class="info-hero" data-animate>
-        <h1 class="info-hero__title">Information &amp; resources</h1>
-        <p class="info-hero__lede">
-          How to read your results, what the scores mean, and where to find
-          support if you need help.
-        </p>
-        <nav class="info-toc" aria-label="On this page" data-animate-stagger data-animate data-animate-delay="100">
-          <a href="#disclaimer" data-animate-child>Disclaimer</a>
-          <a href="#scores" data-animate-child>Scores &amp; bands</a>
-          <a href="#severity" data-animate-child>Severity explained</a>
-          <a href="#predictions" data-animate-child>ML predictions</a>
-          <a href="#self-care" data-animate-child>Self-care</a>
-          <a href="#crisis" data-animate-child>Crisis support</a>
-        </nav>
-      </header>
+    <main>
+      <!-- Page intro + on this page -->
+      <section class="info-intro" aria-labelledby="info-title">
+        <div class="lp-container">
+          <div class="info-intro__head" data-animate>
+            <h1 id="info-title" class="info-intro__title">Information &amp; resources</h1>
+            <p class="info-intro__lede">
+              How to read your results, what the scores mean, and where to find
+              support if you need help.
+            </p>
+          </div>
+          <nav class="info-toc" aria-label="On this page" data-animate-stagger data-animate="fade">
+            <a class="info-toc__item" href="#disclaimer" data-animate-child>
+              <span class="info-toc__icon"><svg aria-hidden="true"><use href="#i-scale" /></svg></span>
+              <span><strong>Disclaimer</strong><small>Screening, not diagnosis</small></span>
+            </a>
+            <a class="info-toc__item" href="#scores" data-animate-child>
+              <span class="info-toc__icon"><svg aria-hidden="true"><use href="#i-chart" /></svg></span>
+              <span><strong>Scores &amp; bands</strong><small>Cut-offs per subscale</small></span>
+            </a>
+            <a class="info-toc__item" href="#severity" data-animate-child>
+              <span class="info-toc__icon"><svg aria-hidden="true"><use href="#i-layers" /></svg></span>
+              <span><strong>Severity explained</strong><small>What each tier means</small></span>
+            </a>
+            <a class="info-toc__item" href="#predictions" data-animate-child>
+              <span class="info-toc__icon"><svg aria-hidden="true"><use href="#i-sparkles" /></svg></span>
+              <span><strong>ML predictions</strong><small>How the models work</small></span>
+            </a>
+            <a class="info-toc__item" href="#self-care" data-animate-child>
+              <span class="info-toc__icon"><svg aria-hidden="true"><use href="#i-heart" /></svg></span>
+              <span><strong>Self-care</strong><small>General wellness tips</small></span>
+            </a>
+            <a class="info-toc__item info-toc__item--alert" href="#crisis" data-animate-child>
+              <span class="info-toc__icon"><svg aria-hidden="true"><use href="#i-phone" /></svg></span>
+              <span><strong>Crisis support</strong><small>Hotlines &amp; emergency</small></span>
+            </a>
+          </nav>
+        </div>
+      </section>
 
       <!-- Disclaimer -->
-      <aside id="disclaimer" class="info-callout" aria-labelledby="disclaimer-title" data-animate>
-        <div class="info-callout__icon" aria-hidden="true">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z"
-            />
-          </svg>
+      <section class="info-disclaimer-wrap" aria-labelledby="disclaimer-title">
+        <div class="lp-container">
+          <aside id="disclaimer" class="lp-disclaimer info-anchor" data-animate>
+            <span class="lp-disclaimer__icon"><svg aria-hidden="true"><use href="#i-scale" /></svg></span>
+            <div>
+              <h2 id="disclaimer-title">Clinical disclaimer</h2>
+              <p>
+                This application is for
+                <strong>educational and research purposes only</strong>. The
+                DASS-21 is a screening tool, not a diagnostic instrument. Results
+                reflect symptom intensity over the past week and statistical
+                models—not a formal diagnosis or medical opinion. Always consult a
+                qualified mental health professional for personal advice.
+              </p>
+            </div>
+          </aside>
         </div>
-        <div>
-          <h2 id="disclaimer-title">Clinical disclaimer</h2>
-          <p>
-            This application is for
-            <strong>educational and research purposes only</strong>. The DASS-21
-            is a screening tool, not a diagnostic instrument. Results reflect
-            symptom intensity over the past week and statistical models—not a
-            formal diagnosis or medical opinion. Always consult a qualified
-            mental health professional for personal advice.
-          </p>
-        </div>
-      </aside>
+      </section>
 
       <!-- Scoring guide -->
-      <section id="scores" class="info-card" aria-labelledby="scores-title" data-animate>
-        <div class="info-card__header">
-          <span class="info-card__header-icon" aria-hidden="true">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
-              />
-            </svg>
-          </span>
-          <h2 id="scores-title">DASS-21 scoring guide</h2>
-        </div>
-        <p class="info-card__intro">
-          Each item is scored 0–3 (Never to Very Often). Subscale totals are
-          <strong>multiplied by 2</strong> to align with the full DASS-42 scale.
-          References:
-          <a
-            class="info-link"
-            href="https://www2.psy.unsw.edu.au/dass/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >UNSW DASS-21</a
-          >,
-          <a
-            class="info-link"
-            href="https://maic.qld.gov.au/wp-content/uploads/2016/07/DASS-21.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            >original questionnaire (PDF)</a
-          >,
-          <a
-            class="info-link"
-            href="https://www.verywellmind.com/dass-21-depression-anxiety-scale-8697715"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Verywell Mind overview</a
-          >.
-        </p>
-        <div class="info-table-wrap">
-          <table class="info-score-table">
-            <thead>
-              <tr>
-                <th scope="col">Severity</th>
-                <th scope="col">Depression</th>
-                <th scope="col">Anxiety</th>
-                <th scope="col">Stress</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <span class="sev-pill sev-pill--normal">Normal</span>
-                </td>
-                <td>0–9</td>
-                <td>0–7</td>
-                <td>0–14</td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="sev-pill sev-pill--mild">Mild</span>
-                </td>
-                <td>10–13</td>
-                <td>8–9</td>
-                <td>15–18</td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="sev-pill sev-pill--moderate">Moderate</span>
-                </td>
-                <td>14–20</td>
-                <td>10–14</td>
-                <td>19–25</td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="sev-pill sev-pill--severe">Severe</span>
-                </td>
-                <td>21–27</td>
-                <td>15–19</td>
-                <td>26–33</td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="sev-pill sev-pill--extreme">Extremely Severe</span>
-                </td>
-                <td>28+</td>
-                <td>20+</td>
-                <td>34+</td>
-              </tr>
-            </tbody>
-          </table>
+      <section id="scores" class="lp-section info-anchor" aria-labelledby="scores-title">
+        <div class="lp-container info-scores">
+          <div class="info-scores__intro" data-animate>
+            <p class="lp-eyebrow">Scoring</p>
+            <h2 id="scores-title" class="lp-title">DASS-21 scoring guide</h2>
+            <p class="lp-lede">
+              Each item is scored 0–3 (Never to Very Often). Subscale totals are
+              <strong>multiplied by 2</strong> to align with the full DASS-42
+              scale. References:
+              <a
+                class="landing-link"
+                href="https://www2.psy.unsw.edu.au/dass/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >UNSW DASS-21</a
+              >,
+              <a
+                class="landing-link"
+                href="https://maic.qld.gov.au/wp-content/uploads/2016/07/DASS-21.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >original questionnaire (PDF)</a
+              >,
+              <a
+                class="landing-link"
+                href="https://www.verywellmind.com/dass-21-depression-anxiety-scale-8697715"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Verywell Mind overview</a
+              >.
+            </p>
+            <ul class="info-facts">
+              <li><strong>0–3</strong><span>Points per item</span></li>
+              <li><strong>×2</strong><span>DASS-42 alignment</span></li>
+              <li><strong>7</strong><span>Items per subscale</span></li>
+            </ul>
+          </div>
+
+          <div class="info-table-card" data-animate="scale" data-animate-delay="100">
+            <div class="info-table-card__head">
+              <span class="info-table-card__icon"><svg aria-hidden="true"><use href="#i-chart" /></svg></span>
+              <div>
+                <p class="info-table-card__title">Severity cut-offs</p>
+                <p class="info-table-card__sub">Scores after ×2 multiplication</p>
+              </div>
+            </div>
+            <div class="info-table-wrap">
+              <table class="info-score-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Severity</th>
+                    <th scope="col">Depression</th>
+                    <th scope="col">Anxiety</th>
+                    <th scope="col">Stress</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="sev-row sev-row--normal">
+                    <td><span class="sev-pill sev-pill--normal">Normal</span></td>
+                    <td>0–9</td>
+                    <td>0–7</td>
+                    <td>0–14</td>
+                  </tr>
+                  <tr class="sev-row sev-row--mild">
+                    <td><span class="sev-pill sev-pill--mild">Mild</span></td>
+                    <td>10–13</td>
+                    <td>8–9</td>
+                    <td>15–18</td>
+                  </tr>
+                  <tr class="sev-row sev-row--moderate">
+                    <td><span class="sev-pill sev-pill--moderate">Moderate</span></td>
+                    <td>14–20</td>
+                    <td>10–14</td>
+                    <td>19–25</td>
+                  </tr>
+                  <tr class="sev-row sev-row--severe">
+                    <td><span class="sev-pill sev-pill--severe">Severe</span></td>
+                    <td>21–27</td>
+                    <td>15–19</td>
+                    <td>26–33</td>
+                  </tr>
+                  <tr class="sev-row sev-row--extreme">
+                    <td><span class="sev-pill sev-pill--extreme">Extremely Severe</span></td>
+                    <td>28+</td>
+                    <td>20+</td>
+                    <td>34+</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Severity tiers -->
-      <section id="severity" class="info-block" aria-labelledby="severity-title" data-animate>
-        <h2 id="severity-title" class="info-block__title">
-          Understanding the tiers
-        </h2>
-        <p class="info-block__lede">
-          These descriptions are general guidance. Individual experiences vary; a
-          professional can help interpret results in context.
-        </p>
-        <ul class="tier-list" data-animate-stagger data-animate>
-          <li class="tier-card" data-animate-child>
-            <span class="sev-pill sev-pill--normal">Normal</span>
-            <p>
-              Scores are within a typical range for the general population on
-              that subscale.
+      <section id="severity" class="lp-section lp-section--soft info-anchor" aria-labelledby="severity-title">
+        <div class="lp-container">
+          <header class="lp-section-head" data-animate>
+            <p class="lp-eyebrow">Severity explained</p>
+            <h2 id="severity-title" class="lp-title">Understanding the tiers</h2>
+            <p class="lp-lede">
+              These descriptions are general guidance. Individual experiences
+              vary; a professional can help interpret results in context.
             </p>
-          </li>
-          <li class="tier-card" data-animate-child>
-            <span class="sev-pill sev-pill--mild">Mild</span>
-            <p>
-              Some symptoms may be present but are often manageable with
-              self-care and lifestyle support.
-            </p>
-          </li>
-          <li class="tier-card" data-animate-child>
-            <span class="sev-pill sev-pill--moderate">Moderate</span>
-            <p>
-              Symptoms are more noticeable and may affect daily life; consider
-              speaking with a counselor or GP.
-            </p>
-          </li>
-          <li class="tier-card" data-animate-child>
-            <span class="sev-pill sev-pill--severe">Severe</span>
-            <p>
-              Symptoms are likely interfering with functioning; professional
-              support is recommended.
-            </p>
-          </li>
-          <li class="tier-card" data-animate-child>
-            <span class="sev-pill sev-pill--extreme">Extremely Severe</span>
-            <p>
-              Symptoms are intense and persistent; seek prompt help from a
-              mental health professional.
-            </p>
-          </li>
-        </ul>
+          </header>
+          <div class="info-spectrum" aria-hidden="true" data-animate="fade">
+            <span></span>
+          </div>
+          <ul class="tier-list" data-animate-stagger data-animate="fade">
+            <li class="tier-card tier-card--normal" data-animate-child>
+              <span class="tier-card__step">01</span>
+              <span class="sev-pill sev-pill--normal">Normal</span>
+              <p>
+                Scores are within a typical range for the general population on
+                that subscale.
+              </p>
+            </li>
+            <li class="tier-card tier-card--mild" data-animate-child>
+              <span class="tier-card__step">02</span>
+              <span class="sev-pill sev-pill--mild">Mild</span>
+              <p>
+                Some symptoms may be present but are often manageable with
+                self-care and lifestyle support.
+              </p>
+            </li>
+            <li class="tier-card tier-card--moderate" data-animate-child>
+              <span class="tier-card__step">03</span>
+              <span class="sev-pill sev-pill--moderate">Moderate</span>
+              <p>
+                Symptoms are more noticeable and may affect daily life; consider
+                speaking with a counselor or GP.
+              </p>
+            </li>
+            <li class="tier-card tier-card--severe" data-animate-child>
+              <span class="tier-card__step">04</span>
+              <span class="sev-pill sev-pill--severe">Severe</span>
+              <p>
+                Symptoms are likely interfering with functioning; professional
+                support is recommended.
+              </p>
+            </li>
+            <li class="tier-card tier-card--extreme" data-animate-child>
+              <span class="tier-card__step">05</span>
+              <span class="sev-pill sev-pill--extreme">Extremely Severe</span>
+              <p>
+                Symptoms are intense and persistent; seek prompt help from a
+                mental health professional.
+              </p>
+            </li>
+          </ul>
+        </div>
       </section>
 
       <!-- ML methodology -->
-      <section
-        id="predictions"
-        class="info-ml"
-        aria-labelledby="predictions-title"
-        data-animate
-      >
-        <h2 id="predictions-title">ML methodology</h2>
-        <p>
-          After you submit the questionnaire on the
-          <a class="info-link" href="/test">assessment page</a>, additional
-          metrics estimate patterns using logistic and linear regression models
-          trained on survey data. These are statistical projections for
-          education and research—not forecasts of your personal future.
-        </p>
-        <ul class="info-ml__list">
-          <li>
-            <span class="info-ml__icon" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z"
-                />
-              </svg>
-            </span>
-            <div>
-              <h3>Logistic regression</h3>
-              <p>
-                Estimates the
-                <strong>likelihood of surpassing mild depression</strong>, given
-                your anxiety and stress scores (probability of moving above the
-                mild threshold). Background:
-                <a
-                  class="info-link"
-                  href="https://www.geeksforgeeks.org/machine-learning/understanding-logistic-regression/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Logistic regression explained</a
-                >.
-              </p>
+      <section id="predictions" class="lp-section lp-dark info-anchor" aria-labelledby="predictions-title">
+        <div class="lp-container info-ml">
+          <div class="info-ml__copy" data-animate>
+            <p class="lp-eyebrow lp-eyebrow--light">ML predictions</p>
+            <h2 id="predictions-title" class="lp-title">ML methodology</h2>
+            <p class="lp-lede">
+              After you submit the questionnaire on the
+              <a class="info-link-light" href="/test">assessment page</a>,
+              additional metrics estimate patterns using logistic and linear
+              regression models trained on survey data. These are statistical
+              projections for education and research—not forecasts of your
+              personal future.
+            </p>
+            <div class="lp-glass-grid info-ml__cards" data-animate-stagger data-animate="fade">
+              <article class="lp-glass" data-animate-child>
+                <span class="lp-glass__icon"><svg aria-hidden="true"><use href="#i-pie" /></svg></span>
+                <p class="lp-glass__label">Classification</p>
+                <h3>Logistic regression</h3>
+                <p>
+                  Estimates the
+                  <strong>likelihood of surpassing mild depression</strong>,
+                  given your anxiety and stress scores (probability of moving
+                  above the mild threshold). Background:
+                  <a
+                    class="info-link-light"
+                    href="https://www.geeksforgeeks.org/machine-learning/understanding-logistic-regression/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Logistic regression explained</a
+                  >.
+                </p>
+              </article>
+              <article class="lp-glass" data-animate-child>
+                <span class="lp-glass__icon"><svg aria-hidden="true"><use href="#i-trend" /></svg></span>
+                <p class="lp-glass__label">Regression</p>
+                <h3>Linear regression</h3>
+                <p>
+                  Estimates the <strong>magnitude of deviation</strong> from the
+                  mild depression cut-off (score of 13), and supports a projected
+                  future depression score and severity band. Background:
+                  <a
+                    class="info-link-light"
+                    href="https://www.geeksforgeeks.org/machine-learning/ml-linear-regression/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Linear regression explained</a
+                  >.
+                </p>
+              </article>
             </div>
-          </li>
-          <li>
-            <span class="info-ml__icon" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"
-                />
-              </svg>
-            </span>
-            <div>
-              <h3>Linear regression</h3>
-              <p>
-                Estimates the
-                <strong>magnitude of deviation</strong> from the mild depression
-                cut-off (score of 13), and supports a projected future depression
-                score and severity band. Background:
-                <a
-                  class="info-link"
-                  href="https://www.geeksforgeeks.org/machine-learning/ml-linear-regression/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Linear regression explained</a
-                >.
-              </p>
-            </div>
-          </li>
-        </ul>
+          </div>
+
+          <aside class="info-pipeline" aria-label="How a prediction is produced" data-animate="scale" data-animate-delay="120">
+            <p class="info-pipeline__title">From answers to projections</p>
+            <ol>
+              <li>
+                <span class="info-pipeline__dot"><svg aria-hidden="true"><use href="#i-clipboard" /></svg></span>
+                <div>
+                  <strong>Your subscale scores</strong>
+                  <span>Anxiety and stress totals from the questionnaire</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-pipeline__dot"><svg aria-hidden="true"><use href="#i-pie" /></svg></span>
+                <div>
+                  <strong>Likelihood</strong>
+                  <span>Probability of surpassing mild depression</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-pipeline__dot"><svg aria-hidden="true"><use href="#i-trend" /></svg></span>
+                <div>
+                  <strong>Magnitude of deviation</strong>
+                  <span>Distance from the mild cut-off of 13</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-pipeline__dot"><svg aria-hidden="true"><use href="#i-chart" /></svg></span>
+                <div>
+                  <strong>Projected score</strong>
+                  <span>Deviation + 13, matched to a severity band</span>
+                </div>
+              </li>
+            </ol>
+          </aside>
+        </div>
       </section>
 
       <!-- Self-care -->
-      <section id="self-care" class="info-block" aria-labelledby="self-care-title" data-animate>
-        <h2 id="self-care-title" class="info-block__title">
-          General wellness tips
-        </h2>
-        <ul class="wellness-grid" data-animate-stagger data-animate>
-          <li data-animate-child>
-            <span class="wellness-grid__check" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </span>
-            Maintain regular sleep, meals, and gentle physical activity when
-            possible.
-          </li>
-          <li data-animate-child>
-            <span class="wellness-grid__check" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </span>
-            Stay connected with people you trust; isolation can worsen low mood
-            and anxiety.
-          </li>
-          <li data-animate-child>
-            <span class="wellness-grid__check" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </span>
-            Use brief grounding or breathing exercises when anxiety spikes.
-          </li>
-          <li data-animate-child>
-            <span class="wellness-grid__check" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </span>
-            If scores are mild or above, or symptoms persist for two weeks or
-            more, consider a counselor, GP, or licensed professional.
-          </li>
-          <li data-animate-child>
-            <span class="wellness-grid__check" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </span>
-            Limit alcohol and stimulants if they worsen how you feel.
-          </li>
-          <li data-animate-child>
-            <span class="wellness-grid__check" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </span>
-            Keep a simple log of mood and triggers to discuss with a clinician
-            if you seek help.
-          </li>
-        </ul>
+      <section id="self-care" class="lp-section info-anchor" aria-labelledby="self-care-title">
+        <div class="lp-container info-selfcare">
+          <div class="info-selfcare__media" data-animate="scale">
+            <figure class="lp-photo-card">
+              <img
+                src="/static/assets/stock/info-friends.jpg"
+                alt="Four friends with arms around each other watching a sunrise"
+                width="1024"
+                height="682"
+                decoding="async"
+                loading="lazy"
+              />
+            </figure>
+            <div class="lp-photo-badge">
+              <span class="lp-photo-badge__icon"><svg aria-hidden="true"><use href="#i-heart" /></svg></span>
+              <div>
+                <p class="lp-photo-badge__title">General guidance</p>
+                <p class="lp-photo-badge__text">Not a substitute for professional care</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-selfcare__body">
+            <header data-animate>
+              <p class="lp-eyebrow">Self-care</p>
+              <h2 id="self-care-title" class="lp-title">General wellness tips</h2>
+            </header>
+            <ul class="wellness-grid" data-animate-stagger data-animate="fade">
+              <li data-animate-child>
+                <span class="wellness-grid__icon"><svg aria-hidden="true"><use href="#i-moon" /></svg></span>
+                <p>Maintain regular sleep, meals, and gentle physical activity when possible.</p>
+              </li>
+              <li data-animate-child>
+                <span class="wellness-grid__icon"><svg aria-hidden="true"><use href="#i-users" /></svg></span>
+                <p>Stay connected with people you trust; isolation can worsen low mood and anxiety.</p>
+              </li>
+              <li data-animate-child>
+                <span class="wellness-grid__icon"><svg aria-hidden="true"><use href="#i-sparkles" /></svg></span>
+                <p>Use brief grounding or breathing exercises when anxiety spikes.</p>
+              </li>
+              <li data-animate-child>
+                <span class="wellness-grid__icon"><svg aria-hidden="true"><use href="#i-user" /></svg></span>
+                <p>
+                  If scores are mild or above, or symptoms persist for two weeks
+                  or more, consider a counselor, GP, or licensed professional.
+                </p>
+              </li>
+              <li data-animate-child>
+                <span class="wellness-grid__icon"><svg aria-hidden="true"><use href="#i-no" /></svg></span>
+                <p>Limit alcohol and stimulants if they worsen how you feel.</p>
+              </li>
+              <li data-animate-child>
+                <span class="wellness-grid__icon"><svg aria-hidden="true"><use href="#i-pencil" /></svg></span>
+                <p>Keep a simple log of mood and triggers to discuss with a clinician if you seek help.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <!-- Crisis -->
-      <section id="crisis" class="info-block" aria-labelledby="crisis-title" data-animate>
-        <h2 id="crisis-title" class="info-block__title">
-          Crisis and mental health resources
-        </h2>
+      <section id="crisis" class="lp-section info-crisis info-anchor" aria-labelledby="crisis-title">
+        <div class="lp-container">
+          <header class="lp-section-head" data-animate>
+            <p class="lp-eyebrow info-eyebrow--alert">Get help</p>
+            <h2 id="crisis-title" class="lp-title">Crisis and mental health resources</h2>
+          </header>
 
-        <div class="crisis-alert" role="note">
-          <svg
-            class="crisis-alert__icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path
-              d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
-            />
-            <line x1="12" y1="9" x2="12" y2="13" />
-            <line x1="12" y1="17" x2="12.01" y2="17" />
-          </svg>
-          <div>
-            <p class="crisis-alert__title">Immediate help</p>
-            <p>
-              If you or someone else is in <strong>immediate danger</strong>,
-              call your local emergency number —
-              <strong>117</strong> or <strong>911</strong> in the Philippines,
-              <strong>999</strong> in the UK, <strong>911</strong> in the US.
-            </p>
+          <div class="crisis-alert" role="note" data-animate="scale">
+            <span class="crisis-alert__icon"><svg aria-hidden="true"><use href="#i-alert" /></svg></span>
+            <div>
+              <p class="crisis-alert__title">Immediate help</p>
+              <p>
+                If you or someone else is in <strong>immediate danger</strong>,
+                call your local emergency number —
+                <strong>117</strong> or <strong>911</strong> in the Philippines,
+                <strong>999</strong> in the UK, <strong>911</strong> in the US.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div class="crisis-grid" data-animate-stagger data-animate>
-          <article class="crisis-tile" data-animate-child>
-            <div class="crisis-tile__body">
+          <div class="crisis-grid" data-animate-stagger data-animate="fade">
+            <article class="crisis-tile" data-animate-child>
+              <span class="crisis-tile__icon"><svg aria-hidden="true"><use href="#i-phone" /></svg></span>
               <p class="crisis-tile__label">Philippines · NCMH</p>
               <p class="crisis-tile__value">1553</p>
               <p class="crisis-tile__meta">
                 National Center for Mental Health crisis hotline (landline). Also:
                 0917-899-8727 (Globe/TM), 0966-351-4518 (Smart).
               </p>
-            </div>
-            <span class="crisis-tile__icon" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-                />
-              </svg>
-            </span>
-          </article>
+            </article>
 
-          <article class="crisis-tile" data-animate-child>
-            <div class="crisis-tile__body">
+            <article class="crisis-tile" data-animate-child>
+              <span class="crisis-tile__icon"><svg aria-hidden="true"><use href="#i-heart" /></svg></span>
               <p class="crisis-tile__label">Hopeline Philippines</p>
               <p class="crisis-tile__value">2919</p>
               <p class="crisis-tile__meta">
                 Toll-free on Globe/TM. Also: 0917-558-4673, 0918-873-4673.
               </p>
-            </div>
-            <span class="crisis-tile__icon" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-                />
-              </svg>
-            </span>
-          </article>
+            </article>
 
-          <article class="crisis-tile" data-animate-child>
-            <div class="crisis-tile__body">
+            <article class="crisis-tile" data-animate-child>
+              <span class="crisis-tile__icon"><svg aria-hidden="true"><use href="#i-users" /></svg></span>
               <p class="crisis-tile__label">In Touch Crisis Lines</p>
               <p class="crisis-tile__value">(02) 8893-7603</p>
-              <p class="crisis-tile__meta">
-                Also: 0917-800-1123, 0922-893-8944.
-              </p>
-            </div>
-            <span class="crisis-tile__icon" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
-                />
-              </svg>
-            </span>
-          </article>
+              <p class="crisis-tile__meta">Also: 0917-800-1123, 0922-893-8944.</p>
+            </article>
 
-          <article class="crisis-tile" data-animate-child>
-            <div class="crisis-tile__body">
+            <article class="crisis-tile" data-animate-child>
+              <span class="crisis-tile__icon"><svg aria-hidden="true"><use href="#i-phone" /></svg></span>
               <p class="crisis-tile__label">988 Lifeline (US)</p>
-              <p class="crisis-tile__value">
-                <a href="tel:988">988</a>
-              </p>
+              <p class="crisis-tile__value"><a href="tel:988">988</a></p>
               <p class="crisis-tile__meta">
                 Call or text.
-                <a
-                  href="https://988lifeline.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <a href="https://988lifeline.org" target="_blank" rel="noopener noreferrer"
                   >988lifeline.org</a
                 >
               </p>
-            </div>
-            <span class="crisis-tile__icon" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-                />
-              </svg>
-            </span>
-          </article>
+            </article>
 
-          <article class="crisis-tile crisis-tile--wide" data-animate-child>
-            <div class="crisis-tile__body">
+            <article class="crisis-tile crisis-tile--wide" data-animate-child>
+              <span class="crisis-tile__icon"><svg aria-hidden="true"><use href="#i-chat" /></svg></span>
               <p class="crisis-tile__label">Crisis Text Line</p>
               <p class="crisis-tile__value">Text HOME to 741741</p>
               <p class="crisis-tile__meta">
-                Free, confidential text-based support.
-                Worldwide directory:
-                <a
-                  href="https://findahelpline.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                Free, confidential text-based support. Worldwide directory:
+                <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer"
                   >findahelpline.com</a
                 >
               </p>
-            </div>
-            <span class="crisis-tile__icon" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.059-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"
-                />
-              </svg>
-            </span>
-          </article>
-        </div>
+            </article>
+          </div>
 
-        <p class="crisis-footnote">
-          Hotline availability and numbers may change. Verify current details
-          with the service provider before relying on them in an emergency.
-        </p>
+          <p class="crisis-footnote">
+            Hotline availability and numbers may change. Verify current details
+            with the service provider before relying on them in an emergency.
+          </p>
+
+          <div class="lp-cta info-cta" data-animate="scale">
+            <div class="lp-cta__content">
+              <h2>Ready to take the assessment?</h2>
+              <p>
+                Answer 21 items and get severity bands plus educational predictive
+                insights in a few minutes.
+              </p>
+              <div class="lp-cta__actions">
+                <a class="btn btn--on-dark btn--pill btn--lg" href="/test">
+                  Start assessment
+                  <svg class="btn__icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+                </a>
+                <a class="btn btn--ghost-dark btn--pill btn--lg" href="/">Back to home</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer class="landing-footer info-footer" data-animate="fade">
-      <p class="landing-footer__brand">DASS21 — Amplified</p>
-      <p class="landing-footer__copy">
-        An educational research tool that extends DASS-21 with predictive
-        analytics. Not a substitute for professional clinical advice.
-      </p>
-      <nav class="landing-footer__links" aria-label="Footer">
-        <a href="/">Home</a>
-        <a href="/test">Assessment</a>
-        <a href="#disclaimer">Disclaimer</a>
-      </nav>
+    <footer class="lp-footer">
+      <div class="lp-container lp-footer__grid">
+        <div class="lp-footer__about">
+          <p class="lp-footer__brand">
+            <span class="landing-brand__mark" aria-hidden="true">
+              <svg><use href="#i-sparkles" /></svg>
+            </span>
+            DASS21 — Amplified
+          </p>
+          <p>
+            An educational research tool that extends DASS-21 with predictive
+            analytics. Not a substitute for professional clinical advice.
+          </p>
+        </div>
+        <nav aria-label="Footer">
+          <p class="lp-footer__heading">Explore</p>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/test">Assessment</a></li>
+            <li><a href="#crisis">Crisis resources</a></li>
+            <li><a href="#disclaimer">Disclaimer</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="References">
+          <p class="lp-footer__heading">References</p>
+          <ul>
+            <li>
+              <a href="https://www2.psy.unsw.edu.au/dass/" target="_blank" rel="noopener noreferrer"
+                >UNSW DASS-21</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://maic.qld.gov.au/wp-content/uploads/2016/07/DASS-21.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                >DASS-21 questionnaire (PDF)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.verywellmind.com/dass-21-depression-anxiety-scale-8697715"
+                target="_blank"
+                rel="noopener noreferrer"
+                >DASS-21 overview</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="lp-container lp-footer__bottom">
+        <p>For educational and research purposes only.</p>
+        <p>Photos from <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a></p>
+      </div>
     </footer>
     <script src="/static/js/animate.js"></script>
   </body>
